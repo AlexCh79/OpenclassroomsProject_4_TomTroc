@@ -19,4 +19,9 @@ spl_autoload_register(function($className) {
     if (file_exists('./models/' . $className . '.php')) {
         require_once './models/' . $className . '.php';
     }
+
+    //Récupération des classes du dossiers services
+    if (file_exists('./services/' . $className . '.php')) {
+        require_once './services/' . $className . '.php';
+    }
 });
