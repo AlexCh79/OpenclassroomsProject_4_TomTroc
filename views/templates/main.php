@@ -16,9 +16,7 @@
     </head>
     <body>
         <header>
-            <nav>
                 <?php require_once 'header.php'; ?>
-            </nav>
         </header>
         <main>
             <?= $content ?>
@@ -26,5 +24,13 @@
         <footer>
             <?php require_once 'footer.php'; ?>
         </footer>
+        <script>
+            const burger = document.querySelector('.burger');
+            const menu = document.querySelector('.mobile-menu');
+
+            burger.addEventListener('click', () => {
+                menu.classList.toggle('open');
+            });
+        </script>
     </body>
 </html>
