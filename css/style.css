@@ -13,9 +13,31 @@ body {
 }
 
 header {
-    background-color: var(--main-background);
+    background-color: var(--header-background);
     margin: 0;
     max-height: 80px;
+    width: 100%;
+}
+
+footer {
+    background-color: var(--main-background);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    list-style: none;
+    line-height: 30px;
+    text-align: center;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
 
 .logo {
@@ -23,12 +45,17 @@ header {
     height: 25.66px;
 }
 
+.logo-without-text {
+    width: 22px;
+    height: 17.36px;
+}
+
 .menu {
     background-color: var(--header-background);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 30px 10px 10px;
+    margin: 5px;
 }
 
 .burger {
@@ -155,4 +182,24 @@ header {
     .desktop-menu a:hover {
         font-weight: bold;
     }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .footer ul {
+        display: flex;
+        align-items: center;
+        gap: 40px; /* espace entre les éléments */
+        margin: 20px 40px;
+        text-align: right;
+    }
+
+    .footer li {
+        margin: 0;
+    }
+
 }
