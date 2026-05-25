@@ -5,10 +5,10 @@
 */
 
 abstract class AbstractEntity {
-    //L'ID est -1 par défaut pour vérifier si l'entité est nouvelle ou non
+    // L'ID est -1 par défaut pour vérifier si l'entité est nouvelle ou non
     protected int $id = -1;
 
-    //Setter et getter
+    // Setter et getter
     public function setId(int $id) : void
     {
         $this->id = $id;

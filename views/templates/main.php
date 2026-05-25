@@ -2,7 +2,6 @@
 
 /*
 * Template principal
-* Pour le moment, limité pour tester les différentes classes et liaisons préparées
 */
 ?>
 
@@ -13,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= $title ?></title>
         <link rel="stylesheet" href="./public/assets/css/style.css">
+        <link rel="icon" type="image/x-icon" href="./public/assets/image/favicon.ico">
     </head>
     <body>
         <?php require_once 'header.php'; ?>

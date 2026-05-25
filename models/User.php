@@ -7,11 +7,11 @@
 class User extends AbstractEntity 
 {
 
-    //Propriétés
+    // Propriétés
     private string $name;
     private string $email;
     private string $password;
-    private ?string $photo = null; //Peut être vide si l'utilisateur n'en a pas à uploader
+    private ?string $photo = null; // Peut être vide si l'utilisateur n'en a pas à uploader
     private DateTime $dateSubscribe;
 
     // Constructeur et ID géré par la classe parente
@@ -29,7 +29,7 @@ class User extends AbstractEntity
         return $this->name;
     }
 
-    //Email
+    // Email
     public function setEmail(string $email) : void
     {
         $this->email = $email;
@@ -40,7 +40,7 @@ class User extends AbstractEntity
         return $this->email;
     }
 
-    //Password
+    // Password
     public function setPassword(string $password) : void
     {
         $this->password = $password;
@@ -51,7 +51,7 @@ class User extends AbstractEntity
         return $this->password;
     }
 
-    //Lien vers la photo de profil
+    // Lien vers la photo de profil
     public function setPhoto(?string $photo) : void
     {
         $this->photo = $photo;
@@ -62,7 +62,7 @@ class User extends AbstractEntity
         return $this->photo;
     }
 
-    //Subscription date
+    // Subscription date
     public function setDateSubscribe(string|DateTime $dateSubscribe) : void
     {
         //Convertit la chaine du tableau reçu en date
