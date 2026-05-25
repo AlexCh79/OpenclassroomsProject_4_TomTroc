@@ -15,15 +15,14 @@
         <link rel="stylesheet" href="./public/assets/css/style.css">
     </head>
     <body>
-        <header>
-                <?php require_once 'header.php'; ?>
-        </header>
+        <?php require_once 'header.php'; ?>
+
         <main>
             <?= $content ?>
         </main>
-        <footer>
-            <?php require_once 'footer.php'; ?>
-        </footer>
+
+        <?php require_once 'footer.php'; ?>
+
         <script>
             <?php require_once './public/assets/script/script.js'; ?>
         </script>
