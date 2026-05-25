@@ -55,7 +55,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px;
+    margin: 15px 20px;
 }
 
 .burger {
@@ -68,14 +68,6 @@ footer {
     justify-content: space-between;
     padding: 6px 0;
     cursor: pointer;
-}
-
-.burger span {
-    display: block;
-    height: 2px;
-    width: 100%;
-    background-color: var(--text-grey);
-    border-radius: 3px;
 }
 
 .mobile-menu {
@@ -132,7 +124,7 @@ footer {
         width: 100%;
         margin: 0;
     }
-
+    
     .burger {
         display: none;
     }
@@ -152,7 +144,7 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         gap: 50px;
-        margin-right: 200px;
+        margin-right: 100px;
     }
 
     .right-menu {

@@ -4,7 +4,8 @@
 * Classe User
 */
 
-class User extends AbstractEntity {
+class User extends AbstractEntity 
+{
 
     //Propriétés
     private string $name;
@@ -13,9 +14,9 @@ class User extends AbstractEntity {
     private ?string $photo = null; //Peut être vide si l'utilisateur n'en a pas à uploader
     private DateTime $dateSubscribe;
 
-    //Constructeur et ID géré par la classe parente
+    // Constructeur et ID géré par la classe parente
 
-    //Setter et Getter
+    // Setter et Getter
 
     //Username
     public function setName(string $name) : void

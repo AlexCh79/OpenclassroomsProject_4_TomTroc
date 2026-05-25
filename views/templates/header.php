@@ -6,12 +6,10 @@
 
 <nav class="menu">
     <div class="left-menu">
-        <img src="./assets/logo_desktop_menu.png" class="logo">
+        <img src="./public/assets/image/logo_desktop_menu.png" class="logo">
     </div>
     <button class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <img src="./public/assets/image/icon_menu.svg">
     </button>
 
 
@@ -34,8 +32,8 @@
                 <li><a href="index.php?action=books">Nos livres à l'échange</a></li>
             </div>
             <div class="right-menu">
-                <li><a href="index.php?action=messages"><img src= "./assets/Icon_messagerie.svg"> Messagerie</a></li>
-                <li><a href="index.php?action=myAccount"><img src= "./assets/Icon_mon_compte.svg"> Mon compte</a></li>
+                <li><a href="index.php?action=messages"><img src= "./public/assets/image/Icon_messagerie.svg"> Messagerie</a></li>
+                <li><a href="index.php?action=myAccount"><img src= "./public/assets/image/Icon_mon_compte.svg"> Mon compte</a></li>
                 <li><a href="index.php?action=login">Connexion</a></li>
             </div>
         </ul>

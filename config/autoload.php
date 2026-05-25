@@ -20,8 +20,13 @@ spl_autoload_register(function($className) {
         require_once './models/' . $className . '.php';
     }
 
-    //Récupération des classes du dossiers services
+    //Récupération des classes du dossier services
     if (file_exists('./services/' . $className . '.php')) {
         require_once './services/' . $className . '.php';
+    }
+
+    // Récupératiion des classes du dossier public
+    if (file_exists('./public:' . $className . '.php')) {
+        require_once './public' . $className . '.php';
     }
 });
