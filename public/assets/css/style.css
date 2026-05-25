@@ -3,6 +3,7 @@
 :root {
     --header-background: #F5F3EF;
     --main-background: #FFFFFF;
+    --light-background: #FAF9F7;
     --text-grey: #A6A6A6;
     --text-main: #292929;
 }
@@ -10,6 +11,18 @@
 body {
     background-color: var(--header-background);
     margin-top: 0;
+}
+
+h1 {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
 }
 
 header {
@@ -53,18 +66,19 @@ footer {
 .menu {
     background-color: var(--header-background);
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 15px 20px;
 }
 
 .burger {
-    width: 32px;
+    width: 375px;
     height: 32px;
     background: none;
     border: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     padding: 6px 0;
     cursor: pointer;
@@ -108,6 +122,111 @@ footer {
     display: none;
 }
 
+.title-list {
+    display: flex;
+    width: 100%;
+    max-width: 375px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    flex-wrap: wrap;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.books-container {
+    background-color: var(--light-background);
+    width: 100%;
+    margin-top: 48px;
+}
+
+.search-bar {
+    width: 100%;
+    width: 335px;
+    height: 50px;
+    padding: 12px 20px 12px 40px; /* espace pour la loupe */
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    background-color: var(--main-background);
+    background-image: url('../image/loup_icon.png'); /* ta loupe */
+    background-repeat: no-repeat;
+    background-size: 15.15px;
+    background-position: 12px center; /* position de la loupe */
+    color: var(--text-grey);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.grid-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 20px;
+    gap: 20px;
+    min-width: 340px;
+}
+
+.grid-list li{
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-book {
+    width: 160px;
+    height: 259.2px;
+    background-color: var(--main-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0;
+    gap: 5px;
+    box-shadow: 0px 4px 24px 0px #00000003;
+}
+
+.cover {
+    width: 160px;
+    height: 160px;
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #000000;
+    height: 16px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.author {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-grey);
+    height: 13px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.user {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-grey);
+    font-size: 8px;
+    font-weight: 400;
+    font-style: italic;
+    height: 12px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
 @media (min-width: 768px) {
     .logo {
         width: 155px;
@@ -117,7 +236,7 @@ footer {
     .menu {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         padding: 16px 40px;
         height: 80px;
@@ -135,7 +254,7 @@ footer {
 
     .desktop-menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
     }
 
@@ -144,13 +263,14 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         gap: 50px;
-        margin-right: 100px;
+        align-items: center;
     }
 
     .right-menu {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        align-items: center;
         gap: 50px;
         margin-left: 400px;
     }
@@ -158,6 +278,7 @@ footer {
     .desktop-menu ul {
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
         gap: 30px;
         list-style: none;
         margin: 0;
@@ -194,4 +315,32 @@ footer {
         margin: 0;
     }
 
+    .books-container {
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 48px;
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        flex-wrap: wrap;
+    }
+
+    .title-list {
+        display: flex;
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 160px 50px 40px 50px;
+        background-color: var(--light-background);
+    }
+
+    .grid-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
 }

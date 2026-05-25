@@ -5,10 +5,8 @@
 ?>
 <header>
     <nav class="menu">
-        <div class="left-menu">
-            <img src="./public/assets/image/logo_desktop_menu.png" class="logo">
-        </div>
         <button class="burger">
+            <img src="./public/assets/image/logo_without_text.png" class="logo-without-text">
             <img src="./public/assets/image/icon_menu.svg">
         </button>
 
@@ -28,6 +26,7 @@
         <nav class="desktop-menu">
             <ul>
                 <div class="left-menu">
+                    <li><img src="./public/assets/image/logo_desktop_menu.png" class="logo"></li>
                     <li><a href="index.php?action=home">Accueil</a></li>
                     <li><a href="index.php?action=books">Nos livres à l'échange</a></li>
                 </div>
