@@ -13,6 +13,16 @@
         <title><?= $title ?></title>
         <link rel="stylesheet" href="./public/assets/css/style.css">
         <link rel="icon" type="image/x-icon" href="./public/assets/image/favicon.ico">
+
+        <!-- Chargement de la police des titres principaux -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        
+        <!-- Chargement de la police des corps de texte -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php require_once 'header.php'; ?>
