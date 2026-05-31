@@ -6,23 +6,128 @@
     --light-background: #FAF9F7;
     --text-grey: #A6A6A6;
     --text-main: #292929;
+    --dark-green: #006D41;
+    --light-green: #00AC66;
+}
+
+
+.inter-<uniquifier> {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
 body {
     background-color: var(--header-background);
     margin-top: 0;
+    width: 100%;
+    align-self: center;
 }
 
 h1 {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: "Playfair Display", sans-serif;
     font-size: 30px;
     font-weight: 400;
-    font-style: normal;
     color: #000000;
+    line-height: 100%;
+}
+
+h2 {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 100%;
+    text-align: center;
 }
 
 a {
     text-decoration: none;
+}
+
+.welcome-message a {
+    color: var(--main-background);
+    display: flex;
+    align-self: flex-start;
+    padding: 0;
+}
+
+.welcome-message a:hover {
+    color: var(--main-background);
+}
+
+p {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 100%;
+}
+
+button {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: semi-bold;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--dark-green);
+    color: #FFFFFF;
+}
+
+.light-button {
+    background-color: var(--header-background);
+    border: 1px solid var(--light-green);
+    border-radius: 10px;
+    margin: 22px 38px;
+    padding: 20px;
+    color: var(--light-green);
+    font-weight: 600;
+    width: 335px;
+    height: 63px;
+}
+
+.how-it-works {
+    background-color: var(--header-background);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
+
+.grid-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 0;
+    align-items: center;
+}
+
+.box {
+    background-color: var(--main-background);
+    color: var(--text-main);
+    width: 295px;
+    height: 89px;
+    border: none;
+    border-radius: 10px;
+    list-style: none;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 header {
@@ -34,6 +139,8 @@ header {
 
 footer {
     background-color: var(--main-background);
+    width: 100%;
+    justify-self: center;
     color: var(--text-main);
     display: flex;
     flex-direction: column;
@@ -122,6 +229,62 @@ footer {
     display: none;
 }
 
+.home-image {
+    width: 377px;
+    height: 503px;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: 15px 20px;
+}
+
+caption {
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+legend {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-grey);
+    text-align: right;
+    margin-right: 20px;
+}
+
+.welcome-message {
+    width: 335px;
+}
+
+.welcome-message p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    color:#000000;
+    font-size: 16px;
+    text-align: left;
+}
+
+.dark-button {
+    background-color: var(--light-green);
+    color: #FFFFFF;
+    width: 335px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    height: 63px;
+    margin: 22px 38px;
+}
+
 .title-list {
     display: flex;
     width: 100%;
@@ -161,21 +324,31 @@ footer {
     font-size: 14px;
 }
 
-.grid-list {
+.grid-list, .books-glass {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
-    margin: 20px;
+    margin: 20px 0;
     gap: 20px;
     min-width: 340px;
 }
 
-.grid-list li{
+.grid-list li, .books-glass li{
     list-style: none;
     align-items: center;
     justify-content: center;
+}
+
+.books-glass {
+    background-color: var(--light-background);
+}
+
+.books-glass h2 {
+    padding-top: 25px;
+    width: 268px;
+    margin-bottom: 0;
 }
 
 .card-book {
@@ -197,7 +370,7 @@ footer {
 }
 
 .title {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #000000;
@@ -207,7 +380,7 @@ footer {
 }
 
 .author {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 11px;
     font-weight: 400;
     color: var(--text-grey);
@@ -217,7 +390,7 @@ footer {
 }
 
 .user {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: var(--text-grey);
     font-size: 8px;
     font-weight: 400;
@@ -227,7 +400,49 @@ footer {
     margin-top: 20px;
 }
 
+.banner {
+    width: 100%;
+    max-width: 375px;
+    height: 425px;
+    margin-top: 40px;
+    background-image: url('../image/banniere-mobile.png');
+    background-repeat: no-repeat;
+    justify-self: center;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+    margin: 40px 20px;
+}
+
+.values legend, .values h2 {
+    text-align: left;
+}
+
+.heart-icon {
+    width: 120px;
+    height: 102px;
+    margin-left: 128px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
 @media (min-width: 768px) {
+
+    .values {
+        width: 395px;
+        justify-self: center;
+        font-size: 16px;
+    }
+
+    .heart-icon {
+        margin-left: 350px;
+    }
+    
     .logo {
         width: 155px;
         height: 51px;
@@ -236,16 +451,52 @@ footer {
     .menu {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        padding: 16px 40px;
+        justify-self: center;
+        font-size: 14px;
         height: 80px;
         width: 100%;
         margin: 0;
+        padding: 0;
+        max-width: 1440px;
     }
     
     .burger {
         display: none;
+    }
+
+    .welcome {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 80px;
+    }
+
+    legend {
+        margin-right: 0;
+    }
+
+    .welcome-message h1 {
+        font-size: 36px;
+    }
+
+    .welcome-message {
+        width: 329px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .welcome-message button {
+        margin-left: 0;
+    }
+
+    .dark-button {
+        width: 152px;
+        height: 63px;
     }
 
     .mobile-menu {
@@ -254,8 +505,20 @@ footer {
 
     .desktop-menu {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
         width: 100%;
+    }
+
+    .desktop-menu button {
+        width: 218px;
+        height: 63px;
+        padding: 20px;
+        line-height: 100%;
+        font-weight: 600;
+        margin: 0;
+        vertical-align: middle;
     }
 
     .left-menu {
@@ -264,6 +527,8 @@ footer {
         justify-content: flex-start;
         gap: 50px;
         align-items: center;
+        text-align: left;
+        margin-right: 100px;
     }
 
     .right-menu {
@@ -272,7 +537,8 @@ footer {
         justify-content: flex-end;
         align-items: center;
         gap: 50px;
-        margin-left: 400px;
+        text-align: right;
+        margin-left: 100px;
     }
 
     .desktop-menu ul {
@@ -297,6 +563,7 @@ footer {
     }
 
     footer {
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -306,7 +573,7 @@ footer {
     .footer ul {
         display: flex;
         align-items: center;
-        gap: 40px; /* espace entre les éléments */
+        gap: 40px;
         margin: 20px 40px;
         text-align: right;
     }
@@ -342,5 +609,50 @@ footer {
         align-items: center;
         flex-wrap: wrap;
         gap: 40px;
+    }
+
+    .books-glass {
+        background-color: var(--light-background);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .books-glass h2 {
+        width: 100%;
+    }
+
+    .books-glass a, .books-glass button {
+        margin: 10px 0 20px 0;
+        width: 218px;
+        height: 63px;
+        padding: 20px;
+    }
+
+    .grid-boxes {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        width: 175px;
+        height: 89px;
+    }
+
+    .light-button {
+        width: 218px;
+        height: 63px;
+    }
+
+    .banner {
+        background-image: url('../image/banniere.png');
+        width: 100%;
+        max-width: 1440px;
+        height: 230px;
     }
 }

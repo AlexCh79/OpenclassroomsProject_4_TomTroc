@@ -12,8 +12,8 @@ $action = Utils::request('action','home');
 switch ($action) {
     // Page d'accueil
     case 'home':
-        $userController = new UserController();
-        $userController->showHome();
+        $bookController = new BookController();
+        $bookController->ShowLastBooks();
         break;
     
     // Liste des livres à l'échange

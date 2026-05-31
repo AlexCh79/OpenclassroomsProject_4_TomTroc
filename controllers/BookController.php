@@ -14,4 +14,14 @@ class BookController
         $view = new View("Nos livres");
         $view->render("books", ['books' => $books]);
     }
+
+    // Renvoie la liste des 4 derniers livres ajoutés
+    public function ShowLastBooks() : void
+    {
+        $bookManager = new BookManager();
+        $books = $bookManager->getLastBooks();
+
+        $view = new View("Accueil");
+        $view->render("home", ['books' => $books]);
+    }
 }
