@@ -24,4 +24,14 @@ class BookController
         $view = new View("Accueil");
         $view->render("home", ['books' => $books]);
     }
+
+    // Renvoie les détails d'un livre à partir de son id
+    public function showBookDetails(int $id) : void
+    {
+        $bookManager = new BookManager();
+        $book = $bookManager->getBookById($id);
+
+        $view = new View("Single Livre");
+        $view->render("book", ['book' => $book]);
+    }
 }

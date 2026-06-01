@@ -10,7 +10,6 @@
     --light-green: #00AC66;
 }
 
-
 .inter-<uniquifier> {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -40,6 +39,16 @@ h2 {
     color: #000000;
     line-height: 100%;
     text-align: center;
+}
+
+h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    font-style: semi-bold;
+    letter-spacing: 8%;
+    color: var(--text-main);
+    margin-top: 20px;
 }
 
 a {
@@ -431,7 +440,93 @@ legend {
     margin-bottom: 20px;
 }
 
+.book-details {
+    background-color: var(--light-background);
+    width: 100%;
+    justify-self: center;
+}
+
+.book-details .cover {
+    width: 375px;
+    height: 449.48px;
+    justify-self: center;
+}
+
+.book-details button {
+    margin: 20px 0;
+}
+
+.book-info {
+    margin: 20px;
+}
+
+.book-info p, .cartouche p {
+    font-weight: 400;
+    color: var(--text-main);
+    font-size: 14px;
+    line-height: 100%;
+    margin: 20px 0;
+}
+
+.book-info legend {
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    padding: 20px 0;
+}
+
+.cartouche {
+    width: 157px;
+    height: 60px;
+    background-color: var(--main-background);
+    border: none;
+    border-radius: 114px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.cartouche img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.cartouche span {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-main);
+}
+
 @media (min-width: 768px) {
+
+    .book-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        background-color: var(--light-background);
+    }
+
+    .book-details .cover {
+        width: 720px;
+        height: 863px;
+    }
+
+    .book-details button {
+        width: 485px;
+        height: 63px;
+    }
+
+    .book-info {
+        width: 485px;
+    }
 
     .values {
         width: 395px;
