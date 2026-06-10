@@ -46,6 +46,7 @@ class BookManager extends AbstractManager
         if ($book) {
             return new Book($book);
         }
+        
         return null;
     }
 }

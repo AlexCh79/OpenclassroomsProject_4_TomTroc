@@ -50,6 +50,15 @@ try {
         case 'subscribe':
             $userController->subscribe();
             break;
+
+        // Affichage de la page de profil de l'utilisateur si connecté
+        case 'myAccount':
+            if (isset($_SESSION['idUser'])) {
+                $userController ;
+            } else {
+                // Renvoie vers la page de connexion si l'utilisateur n'est pas connecté
+                $userController->login();
+            }
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

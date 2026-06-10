@@ -63,9 +63,9 @@ class UserController
     */
     public function logUser() : void
     {
-        // Récupération des champs
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
+        // Récupération des champs du formulaire de connexion
+        $email = htmlspecialchars(Utils::request('email', NULL));
+        $password = htmlspecialchars(Utils::request('password', NULL));
 
         // Adresse mail non vide et format valide
         if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -79,7 +79,6 @@ class UserController
 
         // Vérification des identifiants de l'utilisateur
         $userManager = new UserManager();
-        $user = new User();
         $user = $userManager->getUserByEmail($email);
 
         if (!$user) {
@@ -91,11 +90,12 @@ class UserController
             throw new Exception("Le mot de passe est erroné, veuillez vérifier votre saisie.");
         }
 
+        // Paramétrage de la session utilisateur
         $_SESSION['user'] = $email;
         $_SESSION['idUser'] = $user->getId();
 
-        // Redirection vers la page d'accueil
-        header ("index.php");
+        // Redirection vers la page du compte utilisateur
+        $view = new View("Mon Compte");
+        $view->render("myAccount", ['user' => $user]);
     }
-
 }
