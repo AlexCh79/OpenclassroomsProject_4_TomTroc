@@ -4,7 +4,8 @@
 * Classe contenant les fonctions utilisées dans le site de manière générale et non liée à une classe spécifique
 */
 
-class Utils {
+class Utils 
+{
     // Gère les redirections url
     public static function redirect(string $action, array $params = []) : void
     {

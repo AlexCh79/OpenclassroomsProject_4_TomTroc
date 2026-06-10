@@ -15,7 +15,7 @@ class DBManager
     {
         $this->db = new PDO ('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS); // Connexion à la BDD
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // gestion des erreurs
-        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); // Récupération des données de la BDD dans un tableau associatif
+        //$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); // Récupération des données de la BDD dans un tableau associatif
     }
 
     // Méthode pour récupérer l'instance de la classe

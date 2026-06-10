@@ -4,18 +4,18 @@
 */
 ?>
 <section class="book-details">
-    <img class="cover" src="<?= $book['image'] ?>">
+    <img class="cover" src="<?= $book->getImage() ?>">
     <div class="book-info">
-        <h1><?= $book['title'] ?></h1>
-        <legend>Par <?= $book['author'] ?></legend>
-        <img class="hr" src="./public/assets/image/Line 3.png" aria-hidden="true">
+        <h1><?= $book->getTitle() ?></h1>
+        <legend>Par <?= $book->getAuthor() ?></legend>
+        <img class="hr" src="./public/assets/images/Line 3.png" aria-hidden="true">
         
         <h3>DESCRIPTION</h3>
-        <p><?= $book['description'] ?></p>
+        <p><?= nl2br($book->getDescription()) ?></p>
 
         <h3>PROPRIÉTAIRE</h3>
         <div class="cartouche">
-            <img src="<?= $book['userPhoto'] ?>" class="photo-profile"> <span><?= $book['userName'] ?></span>
+            <img src="<?= $user->getPhoto() ?>" class="photo-profile"> <span><?= $user->getName() ?></span>
         </div>
         <button class="dark-button">Envoyer un message</button>        
     </div>

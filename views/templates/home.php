@@ -5,7 +5,7 @@
 ?>
 <section class="welcome">
     <div class="welcome-home">
-        <img src="./public/assets/image/hamza-photo.png" alt="Un lecteur au mileu de piles de livres" class="home-image">
+        <img src="./public/assets/images/hamza-photo.png" alt="Un lecteur au mileu de piles de livres" class="home-image">
         <legend class="welcome-legend">Hamza</legend>
 </div>
     <div class="welcome-message">
@@ -19,12 +19,12 @@
     <h2>Les derniers livres ajoutés</h2>
     <div class="grid-list">
         <?php foreach ($books as $book) { ?>
-        <a href="index.php?action=book&id=<?= $book['bookId'] ?>" >
+        <a href="index.php?action=book&id=<?= $book->getId() ?>" >
             <ul class="card-book">
-                <li><img class="cover" src="<?= $book['image'] ?>"></li>
-                <li class="title"><?= $book['title'] ?></li>
-                <li class="author"><?= $book['author'] ?></li>
-                <li class="user">Vendu par : <?= $book['userName'] ?></li>
+                <li><img class="cover" src="<?= $book->getImage() ?>"></li>
+                <li class="title"><?= $book->getTitle() ?></li>
+                <li class="author"><?= $book->getAuthor() ?></li>
+                <li class="user">Vendu par : <?= $book->getUserName() ?></li>
             </ul>
         <?php } ?>
     </div>
@@ -51,5 +51,5 @@
     <p>Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé.</p>
     <p>Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
     <legend>L'équipe Tom Troc</legend>
-    <img src='./public/assets/image/icon_heart.svg' class="heart-icon">
+    <img src='./public/assets/images/icon_heart.svg' class="heart-icon">
 </section>

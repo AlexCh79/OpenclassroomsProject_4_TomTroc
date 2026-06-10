@@ -1,12 +1,12 @@
 <?php 
 /*
-* Page "Connexion"
+* Page "Inscription"
 */
 ?>
 <section class="connexion">
     <div class="connexion-form">
-        <h1>Connexion</h1>
-        <form action="index.php" method="post">
+        <h1>Inscription</h1>
+        <form action="index.php?action=subscribe" method="post">
             <label for="email">Adresse email :</label>
             <br>
             <input type="email" id="email" name="email" required>
@@ -19,9 +19,9 @@
 
             <br>
 
-            <button type="submit" class="dark-button">Se connecter</button>
+            <button type="submit" class="dark-button">S'inscrire</button>
         </form>
-        <p class="connexion-link">Pas encore de compte ? <a href="index.php?action=signUp">Inscrivez-vous</a></p>
+        <p class="connexion-link">Déjà inscrit ? <a href="index.php?action=login">Connectez-vous</a></p>
     </div>
     <div class="deco-cover">
         <img src="./public/assets/images/signup_cover.png">

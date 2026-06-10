@@ -6,7 +6,7 @@
 class BookController
 {
     // Renvoie la liste de l'ensemble des livres de la base
-    public function showBooks() : void
+    public function showAll() : void
     {
         $bookManager = new BookManager();
         $books = $bookManager->getAllBooks();
@@ -15,23 +15,17 @@ class BookController
         $view->render("books", ['books' => $books]);
     }
 
-    // Renvoie la liste des 4 derniers livres ajoutés
-    public function ShowLastBooks() : void
-    {
-        $bookManager = new BookManager();
-        $books = $bookManager->getLastBooks();
-
-        $view = new View("Accueil");
-        $view->render("home", ['books' => $books]);
-    }
-
     // Renvoie les détails d'un livre à partir de son id
-    public function showBookDetails(int $id) : void
+    public function showBookDetails() : void
     {
+        $id = (int) Utils::request('id', -1);
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
-
+        
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($book->getUserId());
+        
         $view = new View("Single Livre");
-        $view->render("book", ['book' => $book]);
+        $view->render("book", ['book' => $book, 'user' => $user]);
     }
 }

@@ -12,12 +12,12 @@
     </section>
     <section class="grid-list">
         <?php foreach ($books as $book) { ?>
-        <a href="index.php?action=book&id=<?= $book['bookId'] ?>">
+        <a href="index.php?action=book&id=<?= $book->getId() ?>">
             <ul class="card-book">
-                <li><img class="cover" src="<?= $book['image'] ?>"></li>
-                <li class="title"><?= $book['title'] ?></li>
-                <li class="author"><?= $book['author'] ?></li>
-                <li class="user">Vendu par : <?= $book['userName'] ?></li>
+                <li><img class="cover" src="<?= $book->getImage() ?>"></li>
+                <li class="title"><?= $book->getTitle() ?></li>
+                <li class="author"><?= $book->getAuthor() ?></li>
+                <li class="user">Vendu par : <?= $book->getUserName() ?></li>
             </ul>
         <?php } ?>
         </a>
