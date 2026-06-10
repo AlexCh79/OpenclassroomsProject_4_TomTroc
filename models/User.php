@@ -8,7 +8,7 @@ class User extends AbstractEntity
 {
 
     // Propriétés
-    private string $name;
+    private ?string $name = null; // Vide au départ, rempli dans le profil après l'inscription
     private string $email;
     private string $password;
     private ?string $photo = null; // Peut être vide si l'utilisateur n'en a pas à uploader
@@ -19,12 +19,12 @@ class User extends AbstractEntity
     // Setter et Getter
 
     //Username
-    public function setName(string $name) : void
+    public function setName(?string $name) : void
     {
         $this->name = $name;
     }
 
-    public function getName() : string
+    public function getName() : ?string
     {
         return $this->name;
     }

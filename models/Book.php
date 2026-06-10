@@ -6,7 +6,8 @@
 class Book extends AbstractEntity
 {
     // Propriétés
-    private int $idUser;
+    private int $userId;
+    private ?string $userName = null;
     private string $title;
     private string $author;
     private string $description;
@@ -18,15 +19,26 @@ class Book extends AbstractEntity
 
     // Setter et getter
 
-    // IdUser - L'ID de l'utilisateur qui possède le livre
-    public function setIdUser($int idUser) : void
+    // UserId - L'ID de l'utilisateur qui possède le livre
+    public function setUserId(int $userId) : void
     {
-        $this->idUser = $idUser;
+        $this->userId = $userId;
     }
 
-    public function getIdUser() : int
+    public function getUserId() : int
     {
-        return $this->idUser;
+        return $this->userId;
+    }
+
+    // Nom de l'utilisateur qui possède le livre
+    public function setUserName(string $userName) : void
+    {
+        $this->userName = $userName;
+    }
+
+    public function getUserName() : string
+    {
+        return $this->userName;
     }
 
     // Title
@@ -85,8 +97,12 @@ class Book extends AbstractEntity
     }
 
     // Date de l'upload du livre par son propriétaire
-    public function setDateUpload(DateTime $dateUpload) : void
+    public function setDateUpload(string|DateTime $dateUpload) : void
     {
+        if (is_string($dateUpload)) {
+        $dateUpload = new DateTime($dateUpload);
+        }
+        
         $this->dateUpload = $dateUpload;
     }
 
