@@ -24,10 +24,9 @@ class UserManager extends AbstractManager
         $result = $this->db->prepare($sql);
         $result->execute([':email' => $email]);
 
-        $user = new User();
         $user = $result->fetch();
         if ($user) {
-            return $user;
+            return new User($user);
         }
 
         return null;

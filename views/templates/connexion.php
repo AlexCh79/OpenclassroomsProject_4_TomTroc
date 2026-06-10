@@ -6,7 +6,7 @@
 <section class="connexion">
     <div class="connexion-form">
         <h1>Connexion</h1>
-        <form action="index.php" method="post">
+        <form action="index.php?action=logUser" method="post">
             <label for="email">Adresse email :</label>
             <br>
             <input type="email" id="email" name="email" required>
