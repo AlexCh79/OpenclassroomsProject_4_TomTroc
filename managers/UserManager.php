@@ -39,8 +39,8 @@ class UserManager extends AbstractManager
         $result = $this->db->prepare($sql);
         $result->execute([':id' => $id]);
 
-        $user = new User();
         $user = $result->fetch();
+
         if (!$user) {
             throw new exception("Aucun utilisateur trouvé avec cet id.");
         }

@@ -54,11 +54,18 @@ try {
         // Affichage de la page de profil de l'utilisateur si connecté
         case 'myAccount':
             if (isset($_SESSION['idUser'])) {
-                $userController ;
+                $userController->showAccount();
+                break;
             } else {
                 // Renvoie vers la page de connexion si l'utilisateur n'est pas connecté
                 $userController->login();
+                break;
             }
+
+        // Déconnexion
+        case 'logout':
+            $userController->logout();
+            break;
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

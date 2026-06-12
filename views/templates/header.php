@@ -33,7 +33,11 @@
                 <div class="right-menu">
                     <li><a href="index.php?action=messages"><img src= "./public/assets/images/Icon_messagerie.svg"> Messagerie</a></li>
                     <li><a href="index.php?action=myAccount"><img src= "./public/assets/images/Icon_mon_compte.svg"> Mon compte</a></li>
-                    <li><a href="index.php?action=login">Connexion</a></li>
+                    <?php if (!isset($_SESSION['idUser'])) { ?>
+                        <li><a href="index.php?action=login">Connexion</a></li>
+                    <?php } else { ?>
+                        <li><a href="index.php?action=logout">Déconnexion</a></li>
+                    <?php } ?>
                 </div>
             </ul>
         </nav>
