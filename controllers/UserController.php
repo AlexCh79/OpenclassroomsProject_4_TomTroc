@@ -98,4 +98,29 @@ class UserController
         $view = new View("Mon Compte");
         $view->render("myAccount", ['user' => $user]);
     }
+
+    // Récupération des informations de l'utilisateur connecté et affichage du profil
+    public function showAccount(): void
+    {
+        $id = $_SESSION['idUser'];
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($id);
+
+        if (!$user) {
+            throw new exception ("Erreur dans la récupération de la session utilisateur");
+        } 
+
+        $view = new View("Mon Compte");
+        $view->render("myAccount", ['user' => $user]);
+    }
+
+    // Déconnexion de l'utilisateur
+    public function logout(): void
+    {
+        session_unset();
+
+        // Redirection vers la page d'accueil
+        $homeController = new HomeController();
+        $homeController->showHome();
+    }
 }

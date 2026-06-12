@@ -567,6 +567,38 @@ legend {
     align-items: center;
 }
 
+.my-account {
+    margin: 40px 20px;
+}
+
+.my-account a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+    color: var(--text-grey);
+}
+
+.user-card-hr {
+    margin: 40px;
+}
+
+.user-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-background);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.user-photo {
+    width: 135px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
 @media (min-width: 768px) {
 
     html {

@@ -11,7 +11,7 @@ class User extends AbstractEntity
     private ?string $name = null; // Vide au départ, rempli dans le profil après l'inscription
     private string $email;
     private string $password;
-    private ?string $photo = null; // Peut être vide si l'utilisateur n'en a pas à uploader
+    private ?string $photo = './public/assets/images/icon_empty_profile.svg'; // Photo par défaut si l'utilisateur n'en a pas à uploader
     private DateTime $dateSubscribe;
 
     // Constructeur et ID géré par la classe parente
