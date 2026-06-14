@@ -10,9 +10,9 @@
         <img class="user-photo" src="<?= $user->getPhoto()  ?>">
         <a alt="Modifier la photo de profil">modifier</a>
         <img aria-hidden src="./public/assets/images/Line 5.png" class="user-card-hr">
-        <p class="user-name"><?= $user->getName() ?></p>
-        <p class="user-date">Membre depuis le </p>
-        <p>BIBLIOTHEQUE</p>
-        <p>Livres</p>
+        <h2 class="user-name"><?= $user->getName() ?></h2>
+        <p class="user-date"><?= $user->getSince() ?></p>
+        <p class="user-nb-books">BIBLIOTHEQUE</p>
+        <p class="nb-books"><img src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
     </div>
 </section>

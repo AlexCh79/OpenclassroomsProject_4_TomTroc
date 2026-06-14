@@ -16,7 +16,7 @@ class BookController
     }
 
     // Renvoie les détails d'un livre à partir de son id
-    public function showBookDetails() : void
+    public function showDetails() : void
     {
         $id = (int) Utils::request('id', -1);
         $bookManager = new BookManager();

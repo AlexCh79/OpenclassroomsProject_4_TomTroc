@@ -28,7 +28,7 @@ try {
 
         // Page de détails d'un livre
         case 'book':
-            $bookController->showBookDetails();
+            $bookController->showDetails();
             break;
 
         // Page de connexion d'un utilisateur
@@ -62,7 +62,7 @@ try {
                 break;
             }
 
-        // Déconnexion
+        // Déconnexion de l'utilisateur
         case 'logout':
             $userController->logout();
             break;

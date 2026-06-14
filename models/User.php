@@ -77,4 +77,24 @@ class User extends AbstractEntity
     {
         return $this->dateSubscribe;
     }
+
+    // Calcul de l'ancienneté de l'utilisateur
+    public function getSince() : string
+    {
+        $now = new DateTime();
+        $interval = $this->dateSubscribe->diff($now);
+
+        if ($interval->y > 0) {
+        
+            return "Membre depuis {$interval->y} an" . ($interval->y > 1 ? "s" : "");
+        
+        } elseif ($interval->m > 0) {
+        
+            return "Membre depuis {$interval->m} mois";
+
+        } else {
+
+            return "Membre depuis {$interval->d} jour" . ($interval->d > 1 ? "s" : "");
+        }
+    }
 }
