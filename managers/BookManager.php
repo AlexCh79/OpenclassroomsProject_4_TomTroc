@@ -49,4 +49,30 @@ class BookManager extends AbstractManager
         
         return null;
     }
+
+    // Récupère les livres et le nombre de livres pour même utilisateur
+    public function getByUser(int $userId): array
+    {
+        $sql = 'SELECT * FROM books WHERE userId = :userId';
+        $result = $this->db->prepare($sql);
+        $result->execute(['userId' => $userId]);
+
+        $books = [];
+        while ($book = $result->fetch()){
+            $books [] = new Book($book);
+        }
+
+        return $books;
+    }
+
+    // Compte le nombre de livres par utilisateur
+    public function countByUser(int $userId): int
+    {
+        $sql = 'SELECT COUNT(*) as nbBooks FROM books WHERE userId = :userId';
+        $result = $this->db->prepare($sql);
+        $result->execute(['userId' => $userId]);
+
+        $counter = $result->fetch();
+        return (int) $counter['nbBooks'];
+    }
 }

@@ -95,8 +95,7 @@ class UserController
         $_SESSION['idUser'] = $user->getId();
 
         // Redirection vers la page du compte utilisateur
-        $view = new View("Mon Compte");
-        $view->render("myAccount", ['user' => $user]);
+        $this->showAccount();
     }
 
     // Récupération des informations de l'utilisateur connecté et affichage du profil
@@ -109,9 +108,16 @@ class UserController
         if (!$user) {
             throw new exception ("Erreur dans la récupération de la session utilisateur");
         } 
+        
+        // Récupération des livres de l'utilisateur
+        $bookManager = new BookManager();
+        $books = $bookManager->getByUser($id);
+
+        // Compte le nombre de livres possédés par l'utilisateur
+        $nbBooks = $bookManager->countByUser($id);
 
         $view = new View("Mon Compte");
-        $view->render("myAccount", ['user' => $user]);
+        $view->render("myAccount", ['user' => $user, 'books' => $books, 'nbBooks' => $nbBooks]);
     }
 
     // Déconnexion de l'utilisateur

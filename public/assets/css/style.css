@@ -599,6 +599,27 @@ legend {
     margin-bottom: 10px;
 }
 
+.user-date {
+    font-weight: 400;
+    color: var(--text-grey);
+}
+
+.user-nb-books {
+    font-weight: 600;
+    font-style: semi-bold;
+    font-size: 8px;
+    letter-spacing: 8%;
+}
+
+.nb-books {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-main);
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+}
+
 @media (min-width: 768px) {
 
     html {
