@@ -12,7 +12,7 @@ class BookController
         $books = $bookManager->getAllBooks();
 
         $view = new View("Nos livres");
-        $view->render("books", ['books' => $books]);
+        $view->render("books/books", ['books' => $books]);
     }
 
     // Renvoie les détails d'un livre à partir de son id
@@ -26,6 +26,6 @@ class BookController
         $user = $userManager->getUserById($book->getUserId());
         
         $view = new View("Single Livre");
-        $view->render("book", ['book' => $book, 'user' => $user]);
+        $view->render("books/book", ['book' => $book, 'user' => $user]);
     }
 }

@@ -47,4 +47,17 @@ class UserManager extends AbstractManager
 
         return new User($user);
     }
+
+    // Mise à jour de l'utilisateur
+    public function modifyUser(?User $user): void
+    {
+        $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
+        $result = $this->db->prepare($sql);
+        $result->execute([
+            ':id' => $user->getId(),
+            ':name' => $user->getName(),
+            ':email' => $user->getEmail(),
+            ':password' => $user->getPassword(),
+        ]);
+    }
 }

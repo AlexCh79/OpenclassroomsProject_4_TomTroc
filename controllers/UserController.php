@@ -9,14 +9,14 @@ class UserController
     public function login() : void
     {
         $view = new View("Connexion");
-        $view->render("connexion");
+        $view->render("users/connexion");
     }
 
     // Affichage de la page d'inscription
     public function signUp() : void
     {
         $view = new View("Inscription");
-        $view->render("signUp");
+        $view->render("users/signUp");
     }
 
     /*
@@ -25,8 +25,8 @@ class UserController
     public function subscribe() : void
     {
         // Récupération des champs
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
+        $email = htmlspecialchars(Utils::request('email'));
+        $password = htmlspecialchars(Utils::request('password'));
 
         // Adresse mail non vide et format valide
         if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -116,7 +116,7 @@ class UserController
         $nbBooks = $bookManager->countByUser($id);
 
         $view = new View("Mon Compte");
-        $view->render("myAccount", ['user' => $user, 'books' => $books, 'nbBooks' => $nbBooks]);
+        $view->render("users/myAccount", ['user' => $user, 'books' => $books, 'nbBooks' => $nbBooks]);
     }
 
     // Déconnexion de l'utilisateur
@@ -128,5 +128,49 @@ class UserController
         // Redirection vers la page d'accueil
         $homeController = new HomeController();
         $homeController->showHome();
+    }
+
+    // Mise à jour des données utilisateur
+    public function uploadProfile(): void
+    {
+        // Vérif. que l'utilisateur est bien connecté
+        if(!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez vous connecter pour modifier les informations du profil");
+        }
+
+        // Récupération de l'id de l'utilisateur connecté
+        $id = $_SESSION['idUser'];
+
+        // Récupération des données depuis le formulaire
+        $email = Utils::request('email');
+        $password = Utils::request('password');
+        $pseudo = Utils::request('pseudo');
+
+        // Récupération de l'utilisateur de la BDD via l'id connecté
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($id);
+
+        // Mise à jour des données si modifiées
+
+        // Email
+        if (!empty($email) && $email !== $user->getEmail()) {
+            $user->setEmail(htmlspecialchars($email));
+        }
+
+        // Mot de passe
+        if (!empty($password) && !password_verify($password, $user->getPassword())) {
+            $user->setPassword(password_hash($password, PASSWORD_BCRYPT));
+        }
+
+        // Pseudo
+        if (!empty($pseudo) && $pseudo !== $user->getName()){
+            $user->setName(htmlspecialchars($pseudo));
+        }
+
+        // Mise à jour de l'utilisateur dans la base de données
+        $userManager->modifyUser($user);
+
+        // Actualisation de la page
+        $this->showAccount();
     }
 }

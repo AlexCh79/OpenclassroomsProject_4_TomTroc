@@ -62,6 +62,11 @@ try {
                 break;
             }
 
+        // Mise à jour des données utilisateurs
+        case 'uploadUser':
+            $userController->uploadProfile();
+            break;
+
         // Déconnexion de l'utilisateur
         case 'logout':
             $userController->logout();
