@@ -19,22 +19,22 @@
         </section>
         <section class="personal-info">
             <h2>Vos informations personnelles</h2>
-            <form class="info-form" action="upload-user" method="post">
+            <form class="info-form" action="index.php?action=uploadUser" method="post">
                 <ul>
                     <li class="user-info">
                         <label for="email">Adresse email</label>
-                        <input id="email" type="email" value="<?= $user->getEmail() ?>">
+                        <input id="email" name="email" type="email" value="<?= $user->getEmail() ?>">
                     </li>
                     <li class="user-info">
                         <label for="password">Mot de passe</label>
-                        <input id="password" type="password" value="••••••••••">
+                        <input id="password" name="password" type="password" placeholder="••••••••••">
                     </li>
                     <li class="user-info">
                         <label for="pseudo">Pseudo</label>
-                        <input id="pseudo" value="<?= $user->getName() ?>">
+                        <input id="pseudo" name="pseudo" value="<?= $user->getName() ?>">
                     </li>
                 </ul>
-                <button role="submit" class="light-button">Enregistrer</button>
+                <button type="submit" class="light-button">Enregistrer</button>
             </form>
         </section>
     </div>
@@ -57,8 +57,8 @@
                 </div>
                 <p class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></p>
                 <nav class="book-upload-links">
-                    <a class="book-editing">Editer</a>
-                    <a class="book-erasing">Supprimer</a>
+                    <a class="book-editing" href="index.php?action=book-upload">Editer</a>
+                    <a class="book-erasing" href="index.php?action-book-erase">Supprimer</a>
                 </nav>
             </li>
         <?php } ?>
