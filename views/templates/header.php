@@ -18,7 +18,11 @@
                 <li><a href="index.php?action=books">Nos livres à l'échange</a></li>
                 <li><a href="index.php?action=messages">Messagerie</a></li>
                 <li><a href="index.php?action=myAccount">Mon compte</a></li>
-                <li><a href="index.php?action=login">Connexion</a></li>
+                    <?php if (!isset($_SESSION['idUser'])) { ?>
+                        <li><a href="index.php?action=login">Connexion</a></li>
+                    <?php } else { ?>
+                        <li><a href="index.php?action=logout">Déconnexion</a></li>
+                    <?php } ?>
             </ul>
         </nav>
 
