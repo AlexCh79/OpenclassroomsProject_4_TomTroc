@@ -233,8 +233,8 @@ footer {
 .mobile-menu a {
     text-decoration: none;
     font-size: 1.2rem;
-    color: var(--text-grey);
-    font-weight: 500;
+    color: var(--text-main);
+    font-weight: 400;
 }
 
 .mobile-menu.open {
@@ -567,8 +567,13 @@ legend {
     align-items: center;
 }
 
-.my-account {
+.my-account, .personal-info {
     margin: 40px 20px;
+}
+
+.account-section h1 {
+    margin-left: 20px;
+    margin-top: 40px;
 }
 
 .my-account a {
@@ -583,14 +588,73 @@ legend {
     margin: 40px;
 }
 
+.user-card, .personal-info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-background);
+    border-radius: 20px;
+}
+
 .user-card {
+    justify-content: center;
+    align-items: center;
+    padding: 40px;    
+}
+
+.personal-info {
+    padding: 20px;
+}
+
+.personal-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.personal-info h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+.user-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.user-info label{
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-grey);
+    line-height: 100%;
+    margin-bottom: 10px;
+}
+
+.user-info input {
+    width: 269px;
+    height: 50px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    background-color: #EDF2F6;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-main);
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.info-form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-color: var(--main-background);
-    border-radius: 20px;
-    padding: 40px;
+}
+
+.info-form .light-button {
+    width: 269px;
+    height: 63px;
+    margin: 0;
 }
 
 .user-photo {
@@ -620,6 +684,83 @@ legend {
     justify-self: center;
 }
 
+.list-books {
+    list-style: none;
+    border: 1px solid #F5F3EF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-book {
+    width: 333px;
+    height: 327px;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 15px;
+    background-color: #F5F3EF;
+
+}
+
+.user-book-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-book-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.available {
+    background-color: #6DC5A1;
+    color: var(--main-background);
+    font-family: "Inter", sans-serif;
+    font-size: 8.88px;
+    font-weight: 500;
+    width: 71.62px;
+    height: 18.4px;
+    border-radius: 29.58px;
+    padding: 7.4px;
+    text-align: center;
+}
+
+.unavailable {
+    background-color: #C56D6D;
+    color: var(--main-background);
+    font-family: "Inter", sans-serif;
+    font-size: 8.88px;
+    font-weight: 500;
+    width: 71.62px;
+    height: 18.4px;
+    border-radius: 29.58px;
+    padding: 7.4px;
+    text-align: center;
+}
+
+.user-book-cover {
+    max-width: 79px;
+    max-height: 79px;
+}
+
+.user-book-title, .user-book-author {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.user-book-description {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 14px;
+    text-align: justify;
+    color: var(--text-main);
+    max-width: 220px;
+    max-height: 62px;
+}
+
 @media (min-width: 768px) {
 
     html {
@@ -628,6 +769,20 @@ legend {
 
     body {
         max-width: 100%;
+    }
+
+    header a {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: 2%;
+    color: var(--text-main);
+    line-height: 100%;
+}
+
+header a:hover {
+    font-weight: bold;
     }
 
     .connexion-link a {
@@ -798,17 +953,6 @@ legend {
         padding: 0;
     }
 
-    .desktop-menu a {
-        text-decoration: none;
-        font-size: 1.1rem;
-        color: var(--text-main);
-        font-weight: 500;
-    }
-
-    .desktop-menu a:hover {
-        font-weight: bold;
-    }
-
     footer {
         width: 100%;
         display: flex;
@@ -902,5 +1046,31 @@ legend {
         max-width: 1440px;
         height: 230px;
         overflow: hidden;
+    }
+
+    .account-section h1 {
+        margin: 80px 0 20px 15%;
+    }
+
+    .user-info-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-card {
+        width: 547px;
+        height: 508px;
+    }
+
+    .my-account {
+        margin-left: 150px;
+        margin-top: 50px;
+    }
+
+    .personal-info {
+        width: 555px;
+        height: 508px;
     }
 }
