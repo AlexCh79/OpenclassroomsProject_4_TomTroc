@@ -61,6 +61,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    aspect-ratio: initial;
+}
+
 .welcome-message a {
     color: var(--main-background);
     display: flex;
@@ -386,6 +390,7 @@ legend {
 .cover {
     width: 160px;
     height: 160px;
+    aspect-ratio: 1/1;
 }
 
 .title {
@@ -556,6 +561,7 @@ legend {
     overflow: hidden;
     margin: 40px 0 0 0;
     background-color: var(--main-background);
+    aspect-ratio: 1/1;
 }
 
 .error-page {
@@ -588,7 +594,7 @@ legend {
     margin: 40px;
 }
 
-.user-card, .personal-info {
+.user-card {
     display: flex;
     flex-direction: column;
     background-color: var(--main-background);
@@ -603,6 +609,10 @@ legend {
 
 .personal-info {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-background);
+    border-radius: 20px;    
 }
 
 .personal-info ul {
@@ -691,16 +701,40 @@ legend {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 .user-book {
     width: 333px;
     height: 327px;
-    padding: 20px;
     border-radius: 20px;
     gap: 15px;
-    background-color: #F5F3EF;
+    background-color: var(--main-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+.book-upload-links {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: flex-start;
+    margin-left: -50px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.book-editing {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.book-erasing {
+    color: #CB2D2D;
+    text-decoration: underline;
 }
 
 .user-book-header {
@@ -711,6 +745,7 @@ legend {
 .user-book-info {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
 }
 
 .available {
@@ -719,11 +754,12 @@ legend {
     font-family: "Inter", sans-serif;
     font-size: 8.88px;
     font-weight: 500;
-    width: 71.62px;
-    height: 18.4px;
     border-radius: 29.58px;
-    padding: 7.4px;
+    padding: 3.7px 13.31px;
     text-align: center;
+    width: fit-content;
+    gap: 7.4px;
+    margin: 20px 0;
 }
 
 .unavailable {
@@ -742,6 +778,7 @@ legend {
 .user-book-cover {
     max-width: 79px;
     max-height: 79px;
+    aspect-ratio: 1/1;
 }
 
 .user-book-title, .user-book-author {
@@ -781,8 +818,8 @@ legend {
     line-height: 100%;
 }
 
-header a:hover {
-    font-weight: bold;
+    header a:hover {
+        font-weight: bold;
     }
 
     .connexion-link a {

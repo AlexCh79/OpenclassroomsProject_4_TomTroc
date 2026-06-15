@@ -51,10 +51,10 @@ class User extends AbstractEntity
         return $this->password;
     }
 
-    // Lien vers la photo de profil
+    // Lien vers la photo de profil (avec photo par défaut si vide)
     public function setPhoto(?string $photo) : void
     {
-        $this->photo = $photo;
+        $this->photo = $photo ?: './public/assets/images/icon_empty_profile.svg';
     }
 
     public function getPhoto() : ?string

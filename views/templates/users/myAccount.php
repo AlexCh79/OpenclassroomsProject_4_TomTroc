@@ -19,7 +19,7 @@
         </section>
         <section class="personal-info">
             <h2>Vos informations personnelles</h2>
-            <form class="info-form" action="upload" method="post">
+            <form class="info-form" action="upload-user" method="post">
                 <ul>
                     <li class="user-info">
                         <label for="email">Adresse email</label>
@@ -34,7 +34,7 @@
                         <input id="pseudo" value="<?= $user->getName() ?>">
                     </li>
                 </ul>
-                <button aria-roledescription="Enregistrer les nouvelles coordonnées utilisateur" role="submit" class="light-button">Enregistrer</button>
+                <button role="submit" class="light-button">Enregistrer</button>
             </form>
         </section>
     </div>
@@ -56,8 +56,10 @@
                     </div>
                 </div>
                 <p class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></p>
-                <a>Editer</a>
-                <a>Supprimer</a>
+                <nav class="book-upload-links">
+                    <a class="book-editing">Editer</a>
+                    <a class="book-erasing">Supprimer</a>
+                </nav>
             </li>
         <?php } ?>
     </ul>
