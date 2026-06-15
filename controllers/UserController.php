@@ -50,12 +50,11 @@ class UserController
         // Si l'email est disponible, on ajoute le nouvel utilisateur   
         $user = new User();
         $user->setEmail($email);
-        $user->setPassword($password); 
+        $user->setPassword(password_hash($password, PASSWORD_BCRYPT));
         $userManager->addUser($user);
 
         // Redirection vers la page du profil de l'utilisateur pour qu'il puisse le compléter
-        $view = new View("Profil");
-        $view->render("profile", ['user' => $user]);
+        $this->logUser();
     }
 
     /*
@@ -86,7 +85,7 @@ class UserController
         }
 
         $userPass = $user->getPassword();
-        if ($userPass !== $password) {
+        if (!password_verify($password, $userPass)) {
             throw new Exception("Le mot de passe est erroné, veuillez vérifier votre saisie.");
         }
 
@@ -124,6 +123,7 @@ class UserController
     public function logout(): void
     {
         session_unset();
+        session_destroy();
 
         // Redirection vers la page d'accueil
         $homeController = new HomeController();
