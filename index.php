@@ -67,10 +67,21 @@ try {
             $userController->uploadProfile();
             break;
 
+        // Affichage de la page de modification d'un livre
+        case 'display':
+            $bookController->displayDetails();
+            break;
+
+        // Mise à jour des informations d'un livre
+        case 'update':
+            $bookController->update();
+            break;
+
         // Déconnexion de l'utilisateur
         case 'logout':
             $userController->logout();
             break;
+
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

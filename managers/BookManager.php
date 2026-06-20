@@ -75,4 +75,18 @@ class BookManager extends AbstractManager
         $counter = $result->fetch();
         return (int) $counter['nbBooks'];
     }
+
+    // Met à jour un livre
+    public function updateById(?Book $book): void
+    {
+        $sql = 'UPDATE books SET title = :title, author = :author, description = :description, status = :status WHERE id = :id';
+        $result = $this->db->prepare($sql);
+        $result->execute([
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'description' => $book->getDescription(),
+            'status' => $book->getStatus(),
+        ]);
+    }
 }

@@ -8,7 +8,7 @@
     <div class="user-info-container">
         <section class="my-account">
             <div class="user-card">
-                <img aria-label="image de profil utilisateur" class="user-photo" src="<?= $user->getPhoto()  ?>">
+                <img aria-label="image du profil utilisateur" class="user-photo" src="<?= $user->getPhoto()  ?>">
                 <a alt="Modifier la photo de profil">modifier</a>
                 <img aria-hidden src="./public/assets/images/Line 5.png" class="user-card-hr">
                 <h2 class="user-name"><?= $user->getName() ?></h2>
@@ -56,11 +56,41 @@
                     </div>
                 </div>
                 <p class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></p>
-                <nav class="book-upload-links">
-                    <a class="book-editing" href="index.php?action=book-upload">Editer</a>
-                    <a class="book-erasing" href="index.php?action-book-erase">Supprimer</a>
+                <nav class="book-upload-links" aria-label="Modifier le livre">
+                    <a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a>
+                    <a class="book-erasing" href="index.php?action=erase&id=<?= $book->getId() ?>">Supprimer</a>
                 </nav>
             </li>
         <?php } ?>
     </ul>
+</div>
+<div class="desktop-list">
+    <table aria-label="Liste de vos livres">
+        <thead>
+            <tr>
+                <th scope="col">PHOTO</th>
+                <th scope="col">TITRE</th>
+                <th scope="col">AUTEUR</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">DISPONIBILITE</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($books as $book) { ?>
+            <tr>
+                <th scope="row"><img  aria-hidden="" class="user-book-cover" src="<?= $book->getImage() ?>"></th>
+                <td class="user-book-title"><?= $book->getTitle() ?></td>
+                <td class="user-book-author"><?= $book->getAuthor() ?></td>
+                <td class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></td>
+                <?php if ($book->getStatus()) { ?>
+                    <th class="available">disponible</th>
+                <?php } else { ?>
+                    <th class="unavailable">non dispo.</th>
+                <?php } ?>
+                <th><a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a> <a class="book-erasing" href="index.php?action=erase&id=<?= $book->getId() ?>">Supprimer</a></th>              
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </div>
