@@ -67,6 +67,16 @@ try {
             $userController->uploadProfile();
             break;
 
+        // Affichage de la page d'ajout d'un livre
+        case "new":
+            $bookController->new();
+            break;
+
+        // Ajout d'un livre
+        case 'add':
+            $bookController->add();
+            break;
+            
         // Affichage de la page de modification d'un livre
         case 'display':
             $bookController->displayDetails();

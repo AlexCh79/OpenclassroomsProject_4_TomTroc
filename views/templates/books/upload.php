@@ -8,7 +8,7 @@
 <div>
     <section role="region" aria-label="Informations du livre" class="book-container">
         <div aria-label="Photo de couverture" class="cover-container">
-            <img src="<?= $book->getImage() ?>">
+            <img src="<?= urldecode($book->getImage()) ?>">
             <a class="book-editing" href="index.php?action=update-image&id=<?= $book->getId() ?>">Modifier la photo</a>
         </div>
         <form role="form" aria-label="Modifiez les informations du livre" class="info-container" action="index.php?action=update&id=<?= $book->getId() ?>" method="post">

@@ -99,4 +99,66 @@ class BookController
         // Redirection vers la page du compte utilisateur
         Utils::redirect('myAccount');        
     }
+
+    /*
+    * Vue d'ajout d'un livre (avant enregistrement des données)
+    */
+    public function new(): void
+    {
+        $view = new View("Ajout d'un livre");
+        $view->render('books/new');
+    }
+
+    /*
+    * Ajout d'un livre
+    */
+    public function add(): void
+    {
+        // Nettoyage des données
+        $image = urlencode(htmlspecialchars(Utils::request('url-photo')));
+        $title = htmlspecialchars(Utils::request('title'));
+        $author = htmlspecialchars(Utils::request('author'));
+        $description = htmlspecialchars(Utils::request('description'));
+        $availability = Utils::request('availability');
+
+        // Vérification des champs vide
+        if (empty($image)) {
+            $image ="./public/assets/images/cover_default.png";
+        }
+
+        if (empty($title)) {
+            throw new Exception('Le titre du livre est obligatoire.');
+        }
+
+        if (empty($author)) {
+            throw new Exception('L\'auteur du livre est obligatoire.');
+        }
+
+        if (empty($description)) {
+            throw new Exception('La description du livre est obligatoire.');
+        }
+
+        if ($availability === "available") {
+            $status = true;
+        } else {
+            $status = false;
+        }
+
+        // Création du livre
+        $book = new Book();
+        $book->setUserId($_SESSION['idUser']);
+        $book->setImage($image);
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setDescription($description);
+        $book->setStatus($status);
+
+        // Ajout du livre à la base de données
+        $bookManager = new BookManager();
+        $bookManager->add($book);
+
+        // Redirection vers la page du compte utilisateur
+        $userController = new UserController();
+        $userController->showAccount();
+    }
 }

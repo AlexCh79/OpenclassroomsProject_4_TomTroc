@@ -21,8 +21,12 @@
         <?php foreach ($books as $book) { ?>
         <a href="index.php?action=book&id=<?= $book->getId() ?>" >
             <ul class="card-book">
-                <li><img class="cover" src="<?= $book->getImage() ?>"></li>
-                <li class="title"><?= $book->getTitle() ?></li>
+                <li><img class="cover" src="<?= urldecode($book->getImage()) ?>"></li>
+                <?php if(strlen($book->getTitle()) > 25) { ?>
+                    <li class="title"><?= mb_substr($book->getTitle(), 0, 20) . '...' ?></li>
+                <?php } else { ?>
+                    <li class="title"><?= $book->getTitle() ?></li>
+                <?php } ?>
                 <li class="author"><?= $book->getAuthor() ?></li>
                 <li class="user">Vendu par : <?= $book->getUserName() ?></li>
             </ul>

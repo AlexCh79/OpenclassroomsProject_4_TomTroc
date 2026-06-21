@@ -93,12 +93,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, .light-button:hover {
     background-color: var(--dark-green);
     color: #FFFFFF;
 }
 
-.light-button {
+.light-button, .light-button a {
     background-color: var(--header-background);
     border: 1px solid var(--light-green);
     border-radius: 10px;
@@ -108,6 +108,11 @@ button:hover {
     font-weight: 600;
     width: 335px;
     height: 63px;
+}
+
+.new-book {
+    justify-self: center;
+    margin: 40px;
 }
 
 .how-it-works {
@@ -823,6 +828,10 @@ legend {
     font-weight: 400;
     font-size: 14px;
     color: var(--text-main);
+    
+    text-wrap-mode: wrap;
+    text-wrap-style: balance;
+    
 }
 
 .user-book-description {
