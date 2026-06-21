@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="index.php?action=home">Accueil</a></li>
                 <li><a href="index.php?action=books">Nos livres à l'échange</a></li>
-                <li><a href="index.php?action=messages">Messagerie</a></li>
+                <li><a href="index.php?action=messenger">Messagerie</a></li>
                 <li><a href="index.php?action=myAccount">Mon compte</a></li>
                     <?php if (!isset($_SESSION['idUser'])) { ?>
                         <li><a href="index.php?action=login">Connexion</a></li>
@@ -35,7 +35,7 @@
                     <li><a href="index.php?action=books">Nos livres à l'échange</a></li>
                 </div>
                 <div class="right-menu">
-                    <li><a href="index.php?action=messages"><img src= "./public/assets/images/Icon_messagerie.svg" aria-hidden=""> Messagerie</a></li>
+                    <li><a href="index.php?action=messenger"><img src= "./public/assets/images/Icon_messagerie.svg" aria-hidden=""> Messagerie</a></li>
                     <li><a href="index.php?action=myAccount"><img src= "./public/assets/images/Icon_mon_compte.svg" aria-hidden=""> Mon compte</a></li>
                     <?php if (!isset($_SESSION['idUser'])) { ?>
                         <li><a href="index.php?action=login">Connexion</a></li>

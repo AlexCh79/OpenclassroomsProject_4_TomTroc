@@ -9,12 +9,12 @@
             <section class="my-account">
                 <div class="user-card">
                     <img aria-label="image du profil utilisateur" class="user-photo" src="<?= urldecode($user->getPhoto())  ?>">
-                    <img aria-hidden src="./public/assets/images/Line 5.png" class="user-card-hr">
+                    <img aria-hidden="" src="./public/assets/images/Line 5.png" class="user-card-hr">
                     <h2 class="user-name"><?= $user->getPseudo() ?></h2>
                     <p class="user-date"><?= $user->getSince() ?></p>
                     <p class="user-nb-books">BIBLIOTHEQUE</p>
                     <p class="nb-books"><img aria-hidden="" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
-                    <button class="light-button">Envoyer un message</button>
+                    <button class="light-button"><a href="index.php?action=messenger">Envoyer un message</a></button>
                 </div>
             </section>
         </div>
