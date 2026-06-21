@@ -51,6 +51,11 @@ try {
             $userController->subscribe();
             break;
 
+        // Affichage du profil public d'un utilisateur
+        case 'profile':
+            $userController->displayProfile();
+            break;
+
         // Affichage de la page de profil de l'utilisateur si connecté
         case 'myAccount':
             if (isset($_SESSION['idUser'])) {

@@ -187,4 +187,28 @@ class UserController
         // Actualisation de la page
         $this->showAccount();
     }
+
+    /* 
+    * Affichage du profil public utilisateur
+    */
+    public function displayProfile(): void
+    {
+        $id = (int) Utils::request('id');
+
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($id);
+
+        if (!$user) {
+            throw new Exception("L'utilisateur n'existe pas !");
+        }
+
+        $bookManager = new BookManager();
+        $books = $bookManager->getByUser($id);
+        
+        $nbBooks = $bookManager->countByUser($id);
+
+        $view = new View("Compte public");
+        $view->render('users/profile', ['user' => $user, 'books' => $books, 'nbBooks' => $nbBooks]);
+
+    }
 }

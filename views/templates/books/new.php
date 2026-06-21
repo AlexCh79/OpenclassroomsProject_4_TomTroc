@@ -3,7 +3,7 @@
 * Page "Ajout d'un livre"
 */
 ?>
-<a class="return" href="index.php?action=myAccount"><img aria-hidden="" src="./public/assets/images/Line 6.png"> retour </a>
+<a class="return-page" href="index.php?action=myAccount"><img aria-hidden="" src="./public/assets/images/Line 6.png"> retour </a>
 <h2 class="upload-title">Ajouter un nouveau livre</h2>
 <div>
     <section role="region" aria-label="Informations du livre" class="book-container">
