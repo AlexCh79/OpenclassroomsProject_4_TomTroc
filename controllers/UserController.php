@@ -25,8 +25,14 @@ class UserController
     public function subscribe() : void
     {
         // Récupération des champs
+        $pseudo = htmlspecialchars(Utils::request('pseudo'));
         $email = htmlspecialchars(Utils::request('email'));
         $password = htmlspecialchars(Utils::request('password'));
+
+        // Pseudo non vide
+        if (empty($pseudo)) {
+            throw new Exception("Le pseudo est obligatoire");
+        }
 
         // Adresse mail non vide et format valide
         if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -41,7 +47,13 @@ class UserController
         // Création du nouvel utilisateur
         $userManager = new UserManager();
 
-        //On vérifie d'abord que l'email n'est pas déjà utilisé
+        // On vérifie que le pseudo n'existe pas
+        $checkPseudo = $userManager->getByPseudo($pseudo);
+        if ($checkPseudo) {
+            throw new Exception("Ce pseudo existe déjà");
+        }
+
+        //On vérifie que l'email n'est pas déjà utilisé
         $check = $userManager->getUserByEmail($email);
         if ($check) {
             throw new Exception("Cet email est déjà utilisé.");
@@ -49,6 +61,7 @@ class UserController
     
         // Si l'email est disponible, on ajoute le nouvel utilisateur   
         $user = new User();
+        $user->setPseudo($pseudo);
         $user->setEmail($email);
         $user->setPassword(password_hash($password, PASSWORD_BCRYPT));
         $userManager->addUser($user);
@@ -92,6 +105,7 @@ class UserController
         // Paramétrage de la session utilisateur
         $_SESSION['user'] = $email;
         $_SESSION['idUser'] = $user->getId();
+        $_SESSION['pseudo'] = $user->getPseudo();
 
         // Redirection vers la page du compte utilisateur
         $this->showAccount();
@@ -163,8 +177,8 @@ class UserController
         }
 
         // Pseudo
-        if (!empty($pseudo) && $pseudo !== $user->getName()){
-            $user->setName(htmlspecialchars($pseudo));
+        if (!empty($pseudo) && $pseudo !== $user->getPseudo()){
+            $user->setPseudo(htmlspecialchars($pseudo));
         }
 
         // Mise à jour de l'utilisateur dans la base de données

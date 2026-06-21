@@ -11,7 +11,7 @@
                 <img aria-label="image du profil utilisateur" class="user-photo" src="<?= $user->getPhoto()  ?>">
                 <a alt="Modifier la photo de profil">modifier</a>
                 <img aria-hidden src="./public/assets/images/Line 5.png" class="user-card-hr">
-                <h2 class="user-name"><?= $user->getName() ?></h2>
+                <h2 class="user-name"><?= $user->getPseudo() ?></h2>
                 <p class="user-date"><?= $user->getSince() ?></p>
                 <p class="user-nb-books">BIBLIOTHEQUE</p>
                 <p class="nb-books"><img aria-hidden="" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
@@ -31,7 +31,7 @@
                     </li>
                     <li class="user-info">
                         <label for="pseudo">Pseudo</label>
-                        <input id="pseudo" name="pseudo" value="<?= $user->getName() ?>">
+                        <input id="pseudo" name="pseudo" value="<?= $user->getPseudo() ?>">
                     </li>
                 </ul>
                 <button type="submit" class="light-button">Enregistrer</button>

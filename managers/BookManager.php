@@ -11,7 +11,7 @@ class BookManager extends AbstractManager
     */
     public function getAllBooks() : array
     {
-        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.name as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id';
+        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.pseudo as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id';
         $result = $this->db->prepare($sql);
         $result->execute();
         $books = [];
@@ -27,7 +27,7 @@ class BookManager extends AbstractManager
     */
     public function getLatestBooks() : array
     {
-        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.name as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id ORDER BY dateUpload DESC LIMIT 4';
+        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.pseudo as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id ORDER BY dateUpload DESC LIMIT 4';
         $result = $this->db->prepare($sql);
         $result ->execute();
         $books = [];
