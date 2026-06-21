@@ -14,9 +14,9 @@ class UserManager extends AbstractManager
         $sql = "INSERT INTO users (pseudo, email, password) VALUES (:pseudo, :email, :password)";
         $result = $this->db->prepare($sql);
         $result->execute([
-            ':pseudo' => $user->getPseudo(),
-            ':email' => $user->getEmail(),
-            ':password' => $user->getPassword(),
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
         ]);
     }
 
@@ -73,17 +73,17 @@ class UserManager extends AbstractManager
     }
 
     /*
-    * Mise àpseudo jour de l'utilisateur
+    * Mise à jour de l'utilisateur
     */
     public function modifyUser(?User $user): void
     {
         $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password WHERE id = :id";
         $result = $this->db->prepare($sql);
         $result->execute([
-            ':id' => $user->getId(),
-            ':' => $user->getPseudo(),
-            ':email' => $user->getEmail(),
-            ':password' => $user->getPassword(),
+            'id' => $user->getId(),
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
         ]);
     }
 }

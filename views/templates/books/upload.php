@@ -3,7 +3,7 @@
 * Page "Edition livre"
 */
 ?>
-<a class="return-page" href="index.php?action=myAccount"><img aria-hidden="" src="./public/assets/images/Line 6.png"> retour </a>
+<a class="return-page" href="index.php?action=myAccount" aria-label="Retour à la page précédente"><img aria-hidden="" src="./public/assets/images/Line 6.png"> retour </a>
 <h2 class="upload-title">Modifier les informations</h2>
 <div>
     <section role="region" aria-label="Informations du livre" class="book-container">

@@ -107,7 +107,16 @@ try {
         case 'messenger':
             $messageController->getMessenger();
             break;
+        
+        // Affichage de la conversation
+        case 'write':
+            $messageController->displayConversation();
+            break;
 
+        // Envoi d'un nouveau message
+        case 'send':
+            $messageController->send();
+            break;
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
