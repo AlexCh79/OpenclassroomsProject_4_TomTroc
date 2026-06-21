@@ -4,7 +4,7 @@
 */
 ?>
 <section class="book-details">
-    <img class="cover" src="<?= $book->getImage() ?>">
+    <img class="cover" src="<?= urldecode($book->getImage()) ?>">
     <div class="book-info">
         <h1><?= $book->getTitle() ?></h1>
         <legend>Par <?= $book->getAuthor() ?></legend>
@@ -15,7 +15,7 @@
 
         <h3>PROPRIÉTAIRE</h3>
         <div class="cartouche">
-            <img src="<?= $user->getPhoto() ?>" class="photo-profile"> <span><?= $user->getPseudo() ?></span>
+            <img src="<?= urldecode($user->getPhoto()) ?>" class="photo-profile"> <span><?= $user->getPseudo() ?></span>
         </div>
         <button class="dark-button">Envoyer un message</button>        
     </div>

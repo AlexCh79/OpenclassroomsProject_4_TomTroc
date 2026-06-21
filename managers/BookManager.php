@@ -111,4 +111,21 @@ class BookManager extends AbstractManager
         $result = $this->db->prepare($sql);
         $result->execute(['id' => $book->getId()]);
     }
+
+    /*
+    * Ajouter un livre
+    */
+    public function add(?Book $book): void
+    {
+        $sql = 'INSERT INTO books (userID, title, author, description, image, status) VALUES (:userId, :title, :author, :description, :image, :status)';
+        $result = $this->db->prepare($sql);
+        $result->execute([
+            ':userId' => $book->getUserId(),
+            ':title' => $book->getTitle(),
+            ':author' => $book->getAuthor(),
+            ':description' => $book->getDescription(),
+            ':image' => $book->getImage(),
+            ':status' => $book->getStatus(),
+        ]);
+    }
 }
