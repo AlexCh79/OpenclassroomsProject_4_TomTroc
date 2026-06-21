@@ -77,6 +77,11 @@ try {
             $bookController->update();
             break;
 
+        // Suppression d'un livre
+        case 'delete':
+            $bookController->delete();
+            break;
+
         // Déconnexion de l'utilisateur
         case 'logout':
             $userController->logout();

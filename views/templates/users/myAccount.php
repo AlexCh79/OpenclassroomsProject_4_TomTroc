@@ -39,6 +39,9 @@
         </section>
     </div>
 </div>
+<!-- <div>
+    <a href="index.php?action=new" class="return">Ajouter un livre</a>
+</div> -->
 <div class="users-books">
     <ul class="list-books">
         <?php foreach ($books as $book) { ?>
@@ -88,7 +91,10 @@
                 <?php } else { ?>
                     <th class="unavailable">non dispo.</th>
                 <?php } ?>
-                <th><a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a> <a class="book-erasing" href="index.php?action=erase&id=<?= $book->getId() ?>">Supprimer</a></th>              
+                <th>
+                    <a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a>
+                    <a class="book-erasing" href="index.php?action=delete&id=<?= $book->getId() ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce livre ?');">Supprimer</a>
+                </th>              
             </tr>
             <?php } ?>
         </tbody>
