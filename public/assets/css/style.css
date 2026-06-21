@@ -511,6 +511,7 @@ legend {
     justify-content: center;
     align-items: center;
     gap: 12px;
+    vertical-align: middle;
 }
 
 .cartouche img {
@@ -520,11 +521,12 @@ legend {
     border-radius: 50%;
 }
 
-.cartouche span {
+.cartouche span, .photo-profile {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--text-main);
+    vertical-align: middle;
 }
 
 .connexion {
@@ -715,6 +717,8 @@ legend {
     text-align: center;
     align-self: center;
     justify-self: center;
+    margin-top: 5px;
+    margin-bottom: 40px;
 }
 
 .list-books {
@@ -798,6 +802,7 @@ legend {
     text-align: center;
     width: fit-content;
     height: fit-content;
+    max-height: 18.4px;
     gap: 7.4px;
     margin: 20px 0;
 }
@@ -813,6 +818,7 @@ legend {
     text-align: center;
     width: fit-content;
     height: fit-content;
+    max-height: 18.4px;
     gap: 7.4px;
     margin: 20px 0;
 }
@@ -844,11 +850,11 @@ legend {
     max-height: 62px;
 }
 
-.desktop-list {
+.desktop-list, .desktop-profile {
     display: none;
 }
 
-.return a, .return a:visited, .return img  {
+.return-page, .return-page:visited {
     color: var(--text-grey);
     margin-left: 20px;
 }
@@ -1261,7 +1267,7 @@ legend {
     }
 
     .desktop-list {
-        display: flex;
+        display: table;
         justify-self: center;
         border-radius: 20px;
         max-width: 1440px;
@@ -1283,13 +1289,13 @@ legend {
         width: 150px;
     }
 
-    tbody tr, tbody th {
+    tbody tr, tbody th, tbody td {
         margin-bottom: 10px;
         height: 30px;
         text-align: center;
         vertical-align:middle;
-        padding: 40px;
-        width: 150px;
+        padding: 10px;
+        width: 180px;
         font-family: "Inter", sans-serif;
         font-weight: 400;
         font-size: 12px;
@@ -1308,9 +1314,14 @@ legend {
         font-size: 12px;
     }
 
-    .return a, .return a:visited, .return img {
+    .user-book-description {
+        text-align: left;
+    }
+
+    .return-page, .return-page:visited {
         margin-left: 220px;
         margin-top: 40px;
+        color: var(--text-grey);
     }
 
     .upload-title {
@@ -1341,5 +1352,40 @@ legend {
     .info-container button{
         width: 322px;
         padding: 10px;
+    }
+
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        width: 75%; 
+        justify-content: space-between;  
+        justify-self: center;
+    }
+
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        margin: 40px;
+        width: 341px;
+        height: 579px;
+    }
+
+    .profile-info {
+        margin: 0;
+    }
+
+    .desktop-profile {
+        display: table;
+        margin: 40px;
+        justify-self: center;
+        border-radius: 20px;
+        height: fit-content;
+        width: 771px;
+        padding: 30px 0;
+        background-color: var(--main-background);        
+    }
+
+    .desktop-profile th, .desktop-profile td {
+        height: 50px;
     }
 }

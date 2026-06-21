@@ -15,7 +15,7 @@
 
         <h3>PROPRIÉTAIRE</h3>
         <div class="cartouche">
-            <img src="<?= urldecode($user->getPhoto()) ?>" class="photo-profile"> <span><?= $user->getPseudo() ?></span>
+            <a href="index.php?action=profile&id=<?= $user->getId() ?>"><img src="<?= urldecode($user->getPhoto()) ?>" class="photo-profile"> <span><?= $user->getPseudo() ?></span></a>
         </div>
         <button class="dark-button">Envoyer un message</button>        
     </div>
