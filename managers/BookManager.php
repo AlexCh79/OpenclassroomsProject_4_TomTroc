@@ -6,7 +6,9 @@
 
 class BookManager extends AbstractManager
 {
-    // Liste de tous les livres de la base de données
+    /*
+    * Liste de tous les livres de la base de données
+    */
     public function getAllBooks() : array
     {
         $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.name as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id';
@@ -20,7 +22,9 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    // Liste des 4 derniers livres ajoutés à la base
+    /*
+    * Liste des 4 derniers livres ajoutés à la base
+    */
     public function getLatestBooks() : array
     {
         $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.name as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id ORDER BY dateUpload DESC LIMIT 4';
@@ -35,7 +39,9 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    // Récupère un livre à partir de son id
+    /*
+    * Récupère un livre à partir de son id
+    */
     public function getBookById(int $id) : ?Book
     {
         $sql = 'SELECT * FROM books WHERE id = :id';
@@ -50,7 +56,9 @@ class BookManager extends AbstractManager
         return null;
     }
 
-    // Récupère les livres et le nombre de livres pour même utilisateur
+    /*
+    * Récupère les livres et le nombre de livres pour même utilisateur
+    */
     public function getByUser(int $userId): array
     {
         $sql = 'SELECT * FROM books WHERE userId = :userId';
@@ -65,7 +73,9 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    // Compte le nombre de livres par utilisateur
+    /*
+    * Compte le nombre de livres par utilisateur
+    */
     public function countByUser(int $userId): int
     {
         $sql = 'SELECT COUNT(*) as nbBooks FROM books WHERE userId = :userId';
@@ -76,7 +86,9 @@ class BookManager extends AbstractManager
         return (int) $counter['nbBooks'];
     }
 
-    // Met à jour un livre
+    /*
+    * Met à jour un livre
+    */
     public function updateById(?Book $book): void
     {
         $sql = 'UPDATE books SET title = :title, author = :author, description = :description, status = :status WHERE id = :id';
@@ -88,5 +100,15 @@ class BookManager extends AbstractManager
             'description' => $book->getDescription(),
             'status' => $book->getStatus(),
         ]);
+    }
+
+    /*
+    * Supprimer un livre
+    */
+    public function deleteById(?Book $book): void
+    {
+        $sql = 'DELETE FROM books WHERE id = :id';
+        $result = $this->db->prepare($sql);
+        $result->execute(['id' => $book->getId()]);
     }
 }
