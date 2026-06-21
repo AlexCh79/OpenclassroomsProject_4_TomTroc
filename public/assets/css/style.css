@@ -514,7 +514,7 @@ legend {
     vertical-align: middle;
 }
 
-.cartouche img {
+.cartouche img, .messages-list img {
     width: 48px;
     height: auto;
     overflow: hidden;
@@ -926,6 +926,44 @@ legend {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
+}
+
+.messenger h2{
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;    
+    border-bottom: 1px solid var(--main-background);
+    padding: 10px 0;
+
+}
+
+.user-pseudo {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.user-hour {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-main);
+    text-align: right;
+}
+
+.user-message {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-grey);
 }
 
 @media (min-width: 768px) {

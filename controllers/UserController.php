@@ -209,6 +209,5 @@ class UserController
 
         $view = new View("Compte public");
         $view->render('users/profile', ['user' => $user, 'books' => $books, 'nbBooks' => $nbBooks]);
-
     }
 }

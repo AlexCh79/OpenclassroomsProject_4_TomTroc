@@ -7,6 +7,7 @@ require_once './config/config.php';
 
 $bookController = new BookController();
 $userController = new UserController();
+$messageController = new MessageController();
 
 // On récupère l'action demandée
 // Si elle est vide, on renvoie vers la page d'accueil
@@ -100,6 +101,11 @@ try {
         // Déconnexion de l'utilisateur
         case 'logout':
             $userController->logout();
+            break;
+
+        // Affichage de la messagerie (liste des messages)
+        case 'messenger':
+            $messageController->getMessenger();
             break;
 
     }
