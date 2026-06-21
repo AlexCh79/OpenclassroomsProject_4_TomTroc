@@ -9,7 +9,7 @@ class Message extends AbstractEntity
     private int $receiveId; // Utilisateur destinataire
     private DateTime $sendDate;
     private string $content;
-    private bool $readStatus = false; 
+    private bool $readStatus = false; // Faux par défaut, un message ne peut pas être lu avant d'avoir été ouvert
     private User $otherUser; // Utilisateur qui échange avec l'utilisateur connecté
 
     // Constructeur et ID du message gérés par la classe abstraite

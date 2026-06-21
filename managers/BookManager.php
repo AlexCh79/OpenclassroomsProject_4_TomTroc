@@ -120,12 +120,12 @@ class BookManager extends AbstractManager
         $sql = 'INSERT INTO books (userID, title, author, description, image, status) VALUES (:userId, :title, :author, :description, :image, :status)';
         $result = $this->db->prepare($sql);
         $result->execute([
-            ':userId' => $book->getUserId(),
-            ':title' => $book->getTitle(),
-            ':author' => $book->getAuthor(),
-            ':description' => $book->getDescription(),
-            ':image' => $book->getImage(),
-            ':status' => $book->getStatus(),
+            'userId' => $book->getUserId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'description' => $book->getDescription(),
+            'image' => $book->getImage(),
+            'status' => $book->getStatus(),
         ]);
     }
 }
