@@ -15,7 +15,7 @@
 
         <h3>PROPRIÉTAIRE</h3>
         <div class="cartouche">
-            <img src="<?= $user->getPhoto() ?>" class="photo-profile"> <span><?= $user->getName() ?></span>
+            <img src="<?= $user->getPhoto() ?>" class="photo-profile"> <span><?= $user->getPseudo() ?></span>
         </div>
         <button class="dark-button">Envoyer un message</button>        
     </div>
