@@ -105,13 +105,25 @@ try {
 
         // Affichage de la messagerie (liste des messages)
         case 'messenger':
-            $messageController->getMessenger();
-            break;
+            if(isset($_SESSION['idUser'])) {
+                $messageController->getMessenger();
+                break;
+            } else {
+                // Renvoie vers la page de connexion si l'utilisateur n'est pas connecté
+                $userController->login();
+                break;
+            }
         
         // Affichage de la conversation
         case 'write':
-            $messageController->displayConversation();
-            break;
+            if(isset($_SESSION['idUser'])) {
+                $messageController->displayConversation();
+                break;
+            } else {
+                // Renvoie vers la page de connexion si l'utilisateur n'est pas connecté
+                $userController->login();
+                break;
+            }            
 
         // Envoi d'un nouveau message
         case 'send':
