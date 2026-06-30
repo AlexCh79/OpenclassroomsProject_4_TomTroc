@@ -7,15 +7,13 @@ class MessageController
     // Affichage de la messagerie
     public function getMessenger(): void
     {
-        $id = (int) $_SESSION['idUser'];
-
         $messageManager = new MessageManager();
-        $messages = $messageManager->getAll($id);
+        $messages = $messageManager->getAll($_SESSION['idUser']);
 
         $userManager = new UserManager();
 
         foreach($messages as $message){
-            if($message->GetSendId() === $id){
+            if($message->GetSendId() === $_SESSION['idUser']){
                 $otherId = $message->getReceiveId();
             } else {
                 $otherId = $message->getSendId();

@@ -6,15 +6,15 @@
 <div class="page-container">
     <div class="profile-section">
         <div class="user-info-container profile-info">
-            <section class="my-account">
+            <section class="my-account" role="region" aria-label="Présentation du profil">
                 <div class="user-card">
                     <img aria-label="image du profil utilisateur" class="user-photo" src="<?= urldecode($user->getPhoto())  ?>">
-                    <img aria-hidden="" src="./public/assets/images/Line 5.png" class="user-card-hr">
+                    <img aria-hidden="true" alt="" src="./public/assets/images/Line 5.png" class="user-card-hr">
                     <h2 class="user-name"><?= $user->getPseudo() ?></h2>
                     <p class="user-date"><?= $user->getSince() ?></p>
                     <p class="user-nb-books">BIBLIOTHEQUE</p>
-                    <p class="nb-books"><img aria-hidden="" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
-                    <button class="light-button"><a href="index.php?action=messenger">Envoyer un message</a></button>
+                    <p class="nb-books"><img aria-hidden="true" alt="icone de livre" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
+                    <a href="index.php?action=messenger"><button class="light-button">Envoyer un message</button></a>
                 </div>
             </section>
         </div>
@@ -26,15 +26,10 @@
             <?php foreach ($books as $book) { ?>
                 <li class="user-book">
                     <div class="user-book-header">
-                        <img class="user-book-cover" src="<?= urldecode($book->getImage()) ?>" aria-hidden="">
+                        <img class="user-book-cover" src="<?= urldecode($book->getImage()) ?>" aria-label="Couverture">
                         <div class="user-book-info">
                             <span class="user-book-title"><?= $book->getTitle() ?></span>
                             <span class="user-book-author"><?= $book->getAuthor() ?></span>
-                            <?php if ($book->getStatus()) { ?>
-                                <span class="available">disponible</span>
-                            <?php } else { ?>
-                                <span class="unavailable">non dispo.</span>
-                            <?php } ?>
                         </div>
                     </div>
                     <p class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></p>
@@ -56,7 +51,7 @@
             <tbody>
                 <?php foreach ($books as $book) { ?>
                 <tr>
-                    <th scope="row"><img  aria-hidden="" class="user-book-cover" src="<?= urldecode($book->getImage()) ?>"></th>
+                    <th scope="row"><img  aria-label="Couverture" class="user-book-cover" src="<?= urldecode($book->getImage()) ?>"></th>
                     <?php if(strlen($book->getTitle() > 25)) { ?>
                         <td class="user-book-title"><?= mb_substr($book->getTitle(), 0, 20) . '...' ?></td>
                     <?php } else { ?>

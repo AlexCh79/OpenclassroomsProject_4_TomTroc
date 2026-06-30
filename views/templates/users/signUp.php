@@ -18,6 +18,6 @@
         <p class="connexion-link">Déjà inscrit ? <a href="index.php?action=login">Connectez-vous</a></p>
     </div>
     <div class="deco-cover">
-        <img src="./public/assets/images/signup_cover.png">
+        <img src="./public/assets/images/signup_cover.png" aria-hidden="true" alt="Etagère remplie de livres">
     </div>
 </section>    

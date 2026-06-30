@@ -4,9 +4,9 @@
 */
 ?>
 <section role="region" aria-label="Vos messages avec l'utilisateur">
-    <a class="return-page" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="" src="./public/assets/images/Line 6.png"> retour </a>
+    <a class="return-page" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="true" alt="" src="./public/assets/images/Line 6.png"> retour </a>
     <div class="user-cartouche">
-        <img aria-hidden="" src="<?= $other->getPhoto() ?>">
+        <img aria-label="Profil de l'interlocuteur" src="<?= $other->getPhoto() ?>" role="img">
         <span class="user-name"><?= $other->getPseudo() ?></span>
     </div>
     <ul>
@@ -18,7 +18,8 @@
         <?php } ?>
     </ul>
     <form aria-label="Rédigez un nouveau message" method="post" action="index.php?action=send&otherId=<?= $other->getId() ?>">
-        <input class="write-input" name="message" placeholder="Tapez votre message ici">
+        <label class="hidden" for="message">Votre message</label>
+        <input class="write-input" name="message" id="message" placeholder="Tapez votre message ici">
         <button type="submit" aria-label="Envoyer le message" class="dark-button">Envoyer</button>
     </form>
 </section>

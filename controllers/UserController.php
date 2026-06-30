@@ -103,7 +103,7 @@ class UserController
         }
 
         // Paramétrage de la session utilisateur
-        $_SESSION['user'] = $email;
+        $_SESSION['user'] = $user->getEmail();
         $_SESSION['idUser'] = $user->getId();
         $_SESSION['pseudo'] = $user->getPseudo();
 

@@ -24,6 +24,6 @@
         <p class="connexion-link">Pas encore de compte ? <a href="index.php?action=signUp">Inscrivez-vous</a></p>
     </div>
     <div class="deco-cover">
-        <img src="./public/assets/images/signup_cover.png">
+        <img src="./public/assets/images/signup_cover.png" aria-hidden="true" alt="Etagère remplie de livres">
     </div>
 </section>    
