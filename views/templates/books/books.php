@@ -4,18 +4,19 @@
 */
 ?>
 <div class="books-container">
-    <section class="title-list">
+    <section class="title-list" role="region" aria-label="Liste et recherche des livres du site">
         <h1>Nos livres à l'échange</h1>
-        <form action='search' method="POST" class="search-form">
-            <input id="search-books" type="search" role="search" class="search-bar" placeholder="Rechercher un livre">
+        <form action="" class="search-form" role="search">
+            <label class="hidden" for="search-books">Quel livre recherchez-vous ?</label>
+            <input id="search-books" name="book wanted" type="search" role="search" class="search-bar" placeholder="Rechercher un livre">
         </form>
     </section>
-    <section class="grid-list">
+    <section class="grid-list" role="region" aria-label="Liste des livres">
         <?php foreach ($books as $book) { ?>
-        <a href="index.php?action=book&id=<?= $book->getId() ?>">
+        <a href="index.php?action=book&id=<?= $book->getId() ?>" aria-label="vers les détails du livre">
             <ul class="card-book">
                 <li>
-                    <img class="cover" src="<?= urldecode($book->getImage()) ?>">
+                    <img alt="couverture du livre" role="img" class="cover" src="<?= urldecode($book->getImage()) ?>">
                 </li>
                 <?php if(strlen($book->getTitle() > 25)) { ?>
                     <li class="title"><?= mb_substr($book->getTitle(), 0, 20) . '...' ?></li>

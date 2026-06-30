@@ -22,6 +22,15 @@ html {
     width: 100%;
 }
 
+.hidden {
+   height: 1px;
+   left: 0;
+   overflow: hidden;
+   position: absolute;
+   top: -10000px;
+   width: 1px;
+}
+
 body {
     background-color: var(--header-background);
     margin: 0;
@@ -32,7 +41,7 @@ body {
 
 h1 {
     font-family: "Playfair Display", sans-serif;
-    font-size: 30px;
+    font-size: 1.875em;
     font-weight: 400;
     color: #000000;
     line-height: 100%;
@@ -40,7 +49,7 @@ h1 {
 
 h2 {
     font-family: "Playfair Display", sans-serif;
-    font-size: 28px;
+    font-size: 1.8em;
     font-weight: 400;
     color: #000000;
     line-height: 100%;
@@ -49,7 +58,7 @@ h2 {
 
 h3 {
     font-family: "Inter", sans-serif;
-    font-size: 8px;
+    font-size: 0.5em;
     font-weight: 600;
     font-style: semi-bold;
     letter-spacing: 8%;
@@ -79,13 +88,13 @@ img {
 p {
     font-family: "Inter", sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 0.8em;
     line-height: 100%;
 }
 
 button {
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     font-style: semi-bold;
     text-align: center;
@@ -147,7 +156,7 @@ button:hover, .light-button:hover, .dark-button:hover, .dark-button a:hover {
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,7 +181,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 0.8em;
     list-style: none;
     line-height: 30px;
     text-align: center;
@@ -279,7 +288,7 @@ caption {
 
 legend {
     font-family: "Inter", sans-serif;
-    font-size: 12px;
+    font-size: 0.8em;
     font-weight: 400;
     font-style: italic;
     color: var(#696969);
@@ -297,7 +306,7 @@ legend {
     justify-content: center;
     align-self: flex-start;
     color:#000000;
-    font-size: 16px;
+    font-size: 1em;
     text-align: left;
 }
 
@@ -348,7 +357,7 @@ legend {
     background-position: 12px center; /* position de la loupe */
     color: var(--text-grey);
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
 }
 
 .grid-list, .books-glass {
@@ -401,7 +410,7 @@ legend {
 
 .title {
     font-family: "Inter", sans-serif;
-    font-size: 13px;
+    font-size: 0.813em;
     font-weight: 400;
     color: #000000;
     height: 16px;
@@ -411,7 +420,7 @@ legend {
 
 .author {
     font-family: "Inter", sans-serif;
-    font-size: 11px;
+    font-size: 0.688em;
     font-weight: 400;
     color: var(--text-grey);
     height: 13px;
@@ -422,7 +431,7 @@ legend {
 .user {
     font-family: "Inter", sans-serif;
     color: var(--text-grey);
-    font-size: 8px;
+    font-size: 0.5em;
     font-weight: 400;
     font-style: italic;
     height: 12px;
@@ -487,17 +496,19 @@ legend {
 .book-info p, .cartouche p {
     font-weight: 400;
     color: var(--text-main);
-    font-size: 14px;
+    font-size: 0.9em;
     line-height: 100%;
     margin: 20px 0;
 }
 
-.book-info legend {
+.book-info h2 {
     font-style: normal;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     text-align: left;
     padding: 20px 0;
+    font-family: "Inter", sans-serif;
+    color: var(--text-grey);
 }
 
 .cartouche {
@@ -523,7 +534,7 @@ legend {
 
 .cartouche span, .photo-profile {
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 400;
     color: var(--text-main);
     vertical-align: middle;
@@ -536,7 +547,7 @@ legend {
 
 .connexion label {
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 400;
     color: var(--text-grey);
 }
@@ -559,7 +570,7 @@ legend {
 .connexion-link, .connexion-link a {
     color: var(--text-main);
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     margin-top: 40px;
 }
@@ -609,7 +620,7 @@ legend {
 
 .my-account a {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 400;
     text-decoration: underline;
     color: var(--text-grey);
@@ -647,7 +658,7 @@ legend {
 
 .personal-info h2 {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     text-align: left;
 }
 
@@ -658,7 +669,7 @@ legend {
 }
 
 .user-info label{
-    font-size: 14px;
+    font-size: 0.9em;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: var(--text-grey);
@@ -674,7 +685,7 @@ legend {
     background-color: #EDF2F6;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     color: var(--text-main);
     padding-left: 10px;
     margin-bottom: 20px;
@@ -706,13 +717,13 @@ legend {
 .user-nb-books {
     font-weight: 600;
     font-style: semi-bold;
-    font-size: 8px;
+    font-size: 0.5em;
     letter-spacing: 8%;
 }
 
 .nb-books {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     color: var(--text-main);
     text-align: center;
     align-self: center;
@@ -752,7 +763,7 @@ legend {
     margin-left: -50px;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .book-editing {
@@ -761,7 +772,7 @@ legend {
     border: none;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     background-color: transparent; 
 }
 
@@ -776,7 +787,7 @@ legend {
     border: none;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     background-color: transparent;    
 }
 
@@ -832,7 +843,7 @@ legend {
 .user-book-title, .user-book-author {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     color: var(--text-main);
     text-wrap-mode: wrap;
     text-wrap-style: balance;
@@ -841,7 +852,7 @@ legend {
 .user-book-description {
     font-weight: 400;
     font-style: italic;
-    font-size: 14px;
+    font-size: 0.9em;
     text-align: justify;
     color: var(--text-main);
     max-width: 220px;
@@ -853,14 +864,14 @@ legend {
 }
 
 .return-page, .return-page:visited {
-    color: var(--text-grey);
+    color: var(#404040);
     margin-left: 20px;
 }
 
 .upload-title {
     text-align: left;
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 1.875em;
     width: 271px;
     line-height: 100%;
 }
@@ -881,7 +892,7 @@ legend {
 .cover-container a {
     text-align: right;
     margin: 20px;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .info-container {
@@ -896,7 +907,7 @@ legend {
 
 .info-container label{
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 400;
     color: var(--text-grey);
     margin: 10px 0;
@@ -922,7 +933,7 @@ legend {
     margin-bottom: 20px;
     color: var(--text-main);
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 400;
 }
 
@@ -950,14 +961,14 @@ legend {
 .user-pseudo {
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     color: var(--text-main);
 }
 
 .user-hour {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.8em;
     color: var(--text-main);
     text-align: right;
 }
@@ -965,7 +976,7 @@ legend {
 .user-message {
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.8em;
     color: #696969;
 }
 
@@ -982,7 +993,7 @@ legend {
     header a {
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9em;
     font-style: normal;
     letter-spacing: 2%;
     color: var(--text-main);
@@ -1053,7 +1064,7 @@ legend {
     .values {
         width: 395px;
         justify-self: center;
-        font-size: 16px;
+        font-size: 1em;
     }
 
     .heart-icon {
@@ -1071,7 +1082,7 @@ legend {
         justify-content: space-between;
         align-items: center;
         justify-self: center;
-        font-size: 14px;
+        font-size: 0.9em;
         height: 80px;
         width: 100%;
         margin: 0;
@@ -1095,7 +1106,7 @@ legend {
     }
 
     .welcome-message h1 {
-        font-size: 36px;
+        font-size: 2em;
     }
 
     .welcome-message {
@@ -1318,9 +1329,13 @@ legend {
         margin-bottom: 80px;
     }
 
+    table {
+        overflow: scroll;
+    }
+
     thead {
         font-family: "Inter", sans-serif;
-        font-size: 8px;
+        font-size: 0.5em;
         font-weight: 600;
         letter-spacing: 8%;
         line-height: 100%;
@@ -1332,14 +1347,14 @@ legend {
 
     tbody tr, tbody th, tbody td {
         margin-bottom: 10px;
-        height: 30px;
+        height: 130px;
         text-align: center;
         vertical-align:middle;
         padding: 10px;
         width: 180px;
         font-family: "Inter", sans-serif;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 0.8em;
         color: var(--text-main);
     }
 
@@ -1352,7 +1367,7 @@ legend {
     }
     
     .user-book-title, .user-book-author, .user-book-description {
-        font-size: 12px;
+        font-size: 0.8em;
     }
 
     .user-book-description {
@@ -1367,7 +1382,7 @@ legend {
 
     .upload-title {
         margin-left: 220px;
-        font-size: 26px;
+        font-size: 1.625em;
         width:80%;
     }    
 
@@ -1429,4 +1444,11 @@ legend {
     .desktop-profile th, .desktop-profile td {
         height: 50px;
     }
+
+    .actions th {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
 }
