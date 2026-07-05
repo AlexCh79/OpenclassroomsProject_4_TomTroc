@@ -17,7 +17,7 @@
 
 <section class="books-glass" role="region" aria-label="Aperçu des derniers livres ajoutés">
     <h2>Les derniers livres ajoutés</h2>
-    <div class="grid-list">
+    <div class="home-list">
         <?php foreach ($books as $book) { ?>
         <a href="index.php?action=book&id=<?= $book->getId() ?>" aria-label="Afficher les détails du livre" role="link">
             <ul class="card-book">

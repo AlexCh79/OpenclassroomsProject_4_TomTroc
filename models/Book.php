@@ -12,7 +12,7 @@ class Book extends AbstractEntity
     private string $author;
     private string $description;
     private string $image;
-    private bool $status;
+    private int $status = 0;
     private DateTime $dateUpload;
 
     // ID et constructeur gérés par la classe parente
@@ -86,12 +86,12 @@ class Book extends AbstractEntity
     }
 
     // Status (si le livre est dispo à l'échange, le statut est true)
-    public function setStatus(bool $status) : void
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
-    public function getStatus() : bool
+    public function getStatus() : int
     {
         return $this->status;
     }

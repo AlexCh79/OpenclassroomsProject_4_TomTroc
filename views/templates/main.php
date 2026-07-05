@@ -33,8 +33,7 @@
 
         <?php require_once 'footer.php'; ?>
 
-        <script>
-            <?php require_once './public/assets/script/script.js'; ?>
-        </script>
+        <script src="./public/assets/script/script.js"></script>
+
     </body>
 </html>

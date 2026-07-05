@@ -85,8 +85,8 @@
         <tbody>
             <?php foreach ($books as $book) { ?>
             <tr>
-                <th scope="row"><img  alt="Couverture du livre" class="user-book-cover" src="<?= urldecode($book->getImage()) ?>"></th>
-                <?php if(strlen($book->getTitle() > 25)) { ?>
+                <th scope="row"><a href="index.php?action=book&id=<?= $book->getId() ?>" aria-label="Vers les détails du livre"><img  alt="Couverture du livre" class="user-book-cover" src="<?= urldecode($book->getImage()) ?>"></a></th>
+                <?php if(strlen($book->getTitle()) > 25) { ?>
                     <td class="user-book-title"><?= mb_substr($book->getTitle(), 0, 20) . '...' ?></td>
                 <?php } else { ?>
                     <td class="user-book-title"><?= $book->getTitle()?></td>
@@ -103,8 +103,10 @@
                     </th>
                 <?php } ?>
                 <th class="actions">
-                    <a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a>
-                    <a class="book-erasing" href="index.php?action=delete&id=<?= $book->getId() ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce livre ?');">Supprimer</a>
+                    <span>
+                        <a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a>
+                        <a class="book-erasing" href="index.php?action=delete&id=<?= $book->getId() ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce livre ?');">Supprimer</a>
+                    </span>
                 </th>              
             </tr>
             <?php } ?>
