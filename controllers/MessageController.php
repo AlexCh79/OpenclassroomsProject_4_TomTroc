@@ -5,42 +5,57 @@
 class MessageController
 {
     // Affichage de la messagerie
-    public function getMessenger(): void
-    {
-        $messageManager = new MessageManager();
-        $messages = $messageManager->getAll($_SESSION['idUser']);
+public function getMessenger(): void
+{
+    $messageManager = new MessageManager();
+    $messages = $messageManager->getAll($_SESSION['idUser']);
 
-        $userManager = new UserManager();
+    $userManager = new UserManager();
 
-        foreach($messages as $message){
-            if($message->GetSendId() === $_SESSION['idUser']){
-                $otherId = $message->getReceiveId();
-            } else {
-                $otherId = $message->getSendId();
-            }
-
-            $otherUser = $userManager->getUserById($otherId);
-
-            $message->setOtherUser($otherUser);
+    // Préparer la liste des interlocuteurs
+    foreach($messages as $message){
+        if($message->GetSendId() === $_SESSION['idUser']){
+            $otherId = $message->getReceiveId();
+        } else {
+            $otherId = $message->getSendId();
         }
 
-        $view = new View("Messagerie");
-        $view->render('messages/messages', ['messages' => $messages]);
+        $otherUser = $userManager->getUserById($otherId);
+        $message->setOtherUser($otherUser);
     }
+
+    // Charger la conversation si un interlocuteur est cliqué
+    $conversation = null;
+    $other = null;
+
+    if (isset($_GET['otherId'])) {
+        $otherId = (int) $_GET['otherId'];
+        $other = $userManager->getUserById($otherId);
+        $conversation = $messageManager->getConversation($_SESSION['idUser'], $otherId);
+    }
+
+    // Rendu
+    $view = new View("Messagerie");
+    $view->render('messages/messages', [
+        'messages' => $messages,
+        'conversation' => $conversation,
+        'other' => $other
+    ]);
+}
+
 
     /*
     * Affichage des messages échangés avec un seul utilisateur
     */
     public function displayConversation(): void
     {
-        $id = (int) $_SESSION['idUser'];
         $otherId = (int) Utils::request('otherId');
 
         $userManager = new UserManager();
         $otherUser = $userManager->getUserById($otherId);
 
         $messageManager = new MessageManager();
-        $messages = $messageManager->getConversation($id, $otherId);
+        $messages = $messageManager->getConversation($_SESSION['idUser'], $otherId);
 
         $view = new View('Conversation');
         $view->render('messages/write', ['messages' => $messages, 'other' => $otherUser]);
@@ -52,7 +67,6 @@ class MessageController
     public function send(): void
     {
         // Récupération des données
-        $id = (int) $_SESSION['idUser'];
         $otherId = (int) Utils::request('otherId');
         $content = htmlspecialchars(Utils::request('message'));
 
@@ -62,7 +76,7 @@ class MessageController
         }
 
         $message = new Message();
-        $message->setSendId($id);
+        $message->setSendId($_SESSION['idUser']);
         $message->setReceiveId($otherId);
         $message->setContent($content);
         

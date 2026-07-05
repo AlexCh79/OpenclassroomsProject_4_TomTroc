@@ -59,7 +59,7 @@ class BookController
         $title = htmlspecialchars(Utils::request('title'));
         $author = htmlspecialchars(Utils::request('author'));
         $description = htmlspecialchars(Utils::request('description', NULL));
-        $availability = Utils::request('availability');
+        $availability = (int) Utils::request('status', 0);
 
         // Récupération du livre dans la base de données
         $bookManager = new BookManager();
@@ -69,11 +69,7 @@ class BookController
         $book->setTitle($title);
         $book->setAuthor($author);
         $book->setDescription($description);
-        if ($availability === 'available') {
-            $book->setStatus(true);
-        } else {
-            $book->setStatus(false);
-        }
+        $book->setStatus($availability);
 
         // Renvoi du livre vers la BDD
         $bookManager->updateById($book);

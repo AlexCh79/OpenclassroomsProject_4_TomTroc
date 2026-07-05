@@ -13,6 +13,7 @@ class User extends AbstractEntity
     private string $password;
     private ?string $photo = './public/assets/images/icon_empty_profile.svg'; // Photo par défaut si l'utilisateur n'en a pas à uploader
     private DateTime $dateSubscribe;
+    private int $nbMessages;
 
     // Constructeur et ID géré par la classe parente
 
@@ -96,5 +97,16 @@ class User extends AbstractEntity
 
             return "Membre depuis {$interval->d} jour" . ($interval->d > 1 ? "s" : "");
         }
+    }
+
+    // Nombre de messages non lus
+    public function setNbMessages(int $nbMessages) : void
+    {
+        $this->nbMessages = $nbMessages;
+    }
+    
+    public function getNbMessages() : int
+    {
+        return $this->nbMessages;
     }
 }

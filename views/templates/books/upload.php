@@ -19,14 +19,14 @@
             <label for="description">Commentaire</label>
             <textarea name="description" id="description"><?= $book->getDescription() ?></textarea>
             <label for="availability">Disponibilité</label>
-            <select name="availability" id="availability">
+            <select name="status" id="availability">
                 <!-- On affiche la valeur liée au statut de disponibilité du livre -->
                 <?php if ($book->getStatus()) { ?>
-                    <option value="available">disponible</option>
-                    <option value="unavailable">indisponible</option>
+                    <option value="1">disponible</option>
+                    <option value="0">indisponible</option>
                 <?php } else { ?>
-                    <option value="unavailable">indisponible</option>
-                    <option value="available">disponible</option>
+                    <option value="0">indisponible</option>
+                    <option value="1">disponible</option>
                 <?php } ?>
             </select>
             <button type="submit" class="dark-button">Valider</button>
