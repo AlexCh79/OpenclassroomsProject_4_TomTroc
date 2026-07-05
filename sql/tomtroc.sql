@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 05 juil. 2026 à 23:21
+-- Généré le : dim. 05 juil. 2026 à 23:40
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -112,13 +112,16 @@ INSERT INTO `users` (`id`, `pseudo`, `email`, `password`, `photo`, `dateSubscrib
 -- Index pour la table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ID_utilisateur` (`userId`);
 
 --
 -- Index pour la table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ID_receive` (`receive_id`),
+  ADD KEY `ID_sender` (`send_id`);
 
 --
 -- Index pour la table `users`
@@ -147,6 +150,23 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `books`
+--
+ALTER TABLE `books`
+  ADD CONSTRAINT `ID_utilisateur` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `ID_receive` FOREIGN KEY (`receive_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ID_sender` FOREIGN KEY (`send_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
