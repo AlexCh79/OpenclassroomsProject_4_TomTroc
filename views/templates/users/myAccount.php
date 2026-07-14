@@ -39,9 +39,11 @@
         </section>
     </div>
 </div>
-<div class="new-book">
+
+<!-- Ajout de la possibilité d'ajouter un livre depuis la page "Mon compte" - Retirer les marqueurs de commentaire pour activer la fonctionnalité -->
+<!-- <div class="new-book">
         <a href="index.php?action=new" aria-label="Ajout d'un nouveau livre" class="light-button new-book">Ajouter un livre</a>
-</div>
+</div> -->
 
 <!-- Liste des livres version mobile -->
 <div class="users-books">

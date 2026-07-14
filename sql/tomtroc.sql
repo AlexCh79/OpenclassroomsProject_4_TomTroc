@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 05 juil. 2026 à 23:40
+-- Généré le : mar. 14 juil. 2026 à 15:39
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -70,15 +70,26 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`id`, `send_id`, `receive_id`, `send_date`, `content`, `read_status`) VALUES
 (2, 19, 14, '2026-03-16 20:32:23', 'Salut, j\'ai vu ton livre d\'Alex Sol. Il est toujours disponible pour échanger ?', 1),
-(3, 19, 14, '2026-06-21 23:09:17', 'Salut', 0),
-(4, 19, 14, '2026-06-21 23:09:32', 'Encore un message', 0),
+(3, 19, 14, '2026-06-21 23:09:17', 'Salut', 1),
+(4, 19, 14, '2026-06-21 23:09:32', 'Encore un message', 1),
 (5, 19, 15, '2026-06-21 23:15:20', 'Salut', 0),
 (6, 19, 15, '2026-06-21 23:21:45', 'Un dernier message pour la route', 0),
 (7, 19, 15, '2026-06-22 12:47:22', 'Encore un message', 0),
-(15, 14, 19, '2026-07-01 00:49:05', 'Salut, oui toujours dispo', 0),
-(19, 19, 14, '2026-07-01 01:57:29', 'Merci, et celui de Lovecraft ?', 0),
+(15, 14, 19, '2026-07-01 00:49:05', 'Salut, oui toujours dispo', 1),
+(19, 19, 14, '2026-07-01 01:57:29', 'Merci, et celui de Lovecraft ?', 1),
 (20, 14, 15, '2026-07-01 12:09:08', 'Salut AlexLecture', 0),
-(21, 14, 15, '2026-07-01 13:13:41', 'Ton livre est toujours dispo ?', 0);
+(21, 14, 15, '2026-07-01 13:13:41', 'Ton livre est toujours dispo ?', 0),
+(22, 14, 19, '2026-07-14 16:05:17', 'Oui aussi', 1),
+(23, 19, 14, '2026-07-14 16:10:39', 'Il est aussi prenant qu&#039;on le dit ?', 1),
+(24, 19, 15, '2026-07-14 16:23:39', 'Rebonjour Alex', 0),
+(25, 19, 15, '2026-07-14 16:24:13', 'Rebonjour Alex', 0),
+(26, 19, 15, '2026-07-14 16:24:57', 'Rebonjour Alex', 0),
+(27, 19, 15, '2026-07-14 16:27:17', 'Rebonjour Alex', 0),
+(28, 19, 15, '2026-07-14 16:27:29', 'Encore un autre message', 0),
+(29, 19, 15, '2026-07-14 16:27:58', 'Un dernier', 0),
+(30, 19, 15, '2026-07-14 16:28:17', 'Last but not least', 0),
+(31, 14, 19, '2026-07-14 17:18:59', 'Oui je confirme', 1),
+(32, 19, 14, '2026-07-14 17:19:42', 'Cool, est-ce que je peux te l&#039;emprunter ?', 0);
 
 -- --------------------------------------------------------
 
@@ -143,7 +154,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `users`
