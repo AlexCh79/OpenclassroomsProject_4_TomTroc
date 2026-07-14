@@ -33,6 +33,11 @@
 
                 <ul class="conversation">
                     <?php foreach($conversation as $msg){ ?>
+                        <?php if ($msg->getReceiveId() === $_SESSION['idUser']) {
+                            $messageController = new MessageController();
+                            $messageController->markAsRead($msg->getId());
+                        }      
+                        ?>              
                         <?php if ($msg->getSendId() === $other->getId()) { ?>
                             <li class="message-date left-date">
                                 <img class="mini-photo" src="<?= $other->getPhoto() ?>">
