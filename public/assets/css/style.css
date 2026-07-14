@@ -1120,6 +1120,19 @@ legend {
     font-weight: 400;
 }
 
+.counter {
+    background-color: var(--text-main);
+    color: #F5F3EF;
+    font-family: "Inter", sans-serif;
+    border-radius: 6.75px;
+    font-size: 0.6em;
+    font-weight: 700;
+    font-style: bold;
+    padding: 4px 3px;
+    vertical-align: middle;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
 
     html {

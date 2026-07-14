@@ -13,7 +13,10 @@
             </div>
             <ul class="conversation">
                 <?php foreach($messages as $message){ 
-                    $message->setReadStatus(true) ;
+                    if ($message->getReceiveId() === $_SESSION['idUser']) {
+                        $messageController = new MessageController();
+                        $messageController->markAsRead($message->getId());
+                    }
                 ?>
                     <?php if ($message->getSendId() === $other->getId()) { ?>
                         <li class="message-date left-date"><img class="mini-photo" aria-hidden="true" alt="" src="<?= $other->getPhoto() ?>"><?= $message->getSendDate()->format('d:m H:i') ?></li>

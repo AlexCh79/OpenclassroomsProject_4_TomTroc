@@ -2,6 +2,8 @@
 /*
 * Menu du site
 */
+$messageController = new MessageController();
+$counter = $messageController->showUnreadMessages();
 ?>
 <header role="banner">
     <nav class="menu" role="navigation" aria-label="main menu">
@@ -35,7 +37,7 @@
                     <li><a href="index.php?action=books" aria-label="vers la liste des livres">Nos livres à l'échange</a></li>
                 </div>
                 <div class="right-menu">
-                    <li><a href="index.php?action=messenger" aria-label="vers la messagerie"><img src= "./public/assets/images/Icon_messagerie.svg" alt="icone message" aria-hidden="true"> Messagerie</a></li>
+                    <li><a href="index.php?action=messenger" aria-label="vers la messagerie"><img src= "./public/assets/images/Icon_messagerie.svg" alt="icone message" aria-hidden="true"> Messagerie <span class="counter"><?= $counter ?></span></a></li>
                     <li><a href="index.php?action=myAccount" aria-label="vers mon compte"><img src= "./public/assets/images/Icon_mon_compte.svg" alt="icone de profil" aria-hidden="true"> Mon compte</a></li>
                     <?php if (!isset($_SESSION['idUser'])) { ?>
                         <li><a href="index.php?action=login" aria-label="vers la page de connexion">Connexion</a></li>

@@ -11,7 +11,8 @@ class Message extends AbstractEntity
     private string $content;
     private bool $readStatus = false; // Faux par défaut, un message ne peut pas être lu avant d'avoir été ouvert
     private User $otherUser; // Utilisateur qui échange avec l'utilisateur connecté
-
+    private int $unread = 0;
+    
     // Constructeur et ID du message gérés par la classe abstraite
 
     // Setter et Getter
@@ -85,5 +86,16 @@ class Message extends AbstractEntity
     public function getOtherUser(): User
     {
         return $this->otherUser;
+    }
+
+    // Nombre de messages non lus
+    public function setUnread(int $unread) : void
+    {
+        $this->unread = $unread;
+    }
+    
+    public function getUnread() : int
+    {
+        return $this->unread;
     }
 }

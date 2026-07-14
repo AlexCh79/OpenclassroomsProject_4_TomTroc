@@ -84,6 +84,34 @@ public function getMessenger(): void
         $messageManager->sending($message);
 
         // Retour à la conversation
-        $this->displayConversation();
+        $this->getMessenger();
+    }
+
+    /*
+    * Affichage du nombre de messages non lus
+    */
+    public function showUnreadMessages(): int
+    {
+        // Si l'utilisateur n'est pas connecté, on affichera 0 messages par défaut
+        if (!isset($_SESSION['idUser'])) {
+            return 0;
+        }
+
+        $messageManager = new MessageManager();
+        $unreadCount = $messageManager->getUnreadMessages($_SESSION['idUser']);
+
+        $message = new Message();
+        $message->setUnread($unreadCount);
+
+        return $message->getUnread();
+    }
+
+    /*
+    * Passer un message en statut lu
+    */
+    public function markAsRead(int $messageId): void
+    {
+        $messageManager = new MessageManager();
+        $messageManager->markAsRead($messageId);
     }
 }

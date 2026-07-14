@@ -71,4 +71,31 @@ class MessageManager extends AbstractManager
             'content' => $message->getContent(),
         ]);
     }
+
+    /*
+    * Compteur de messages non lus
+    */
+    public function getUnreadMessages(int $id): int
+    {
+        $sql = "SELECT COUNT(*) AS unread_count FROM messages WHERE receive_id = :id AND read_status = 0";
+        $result = $this->db->prepare($sql);
+        $result->execute([
+            'id' => $id,
+        ]);
+
+        $count = $result->fetch();
+        return (int) $count['unread_count'];
+    }
+
+    /*
+    * Renvoie le statut lu d'un message via son ID
+    */
+    public function markAsRead(int $messageId): void
+    {
+        $sql = "UPDATE messages SET read_status = 1 WHERE id = :id";
+        $result = $this->db->prepare($sql);
+        $result->execute([
+            'id' => $messageId,
+        ]);
+    }
 }
