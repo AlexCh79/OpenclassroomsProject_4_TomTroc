@@ -18,7 +18,7 @@
                 <li>
                     <img alt="couverture du livre" role="img" class="cover" src="<?= urldecode($book->getImage()) ?>">
                 </li>
-                <?php if(strlen($book->getTitle() > 25)) { ?>
+                <?php if(strlen($book->getTitle()) > 25) { ?>
                     <li class="title"><?= mb_substr($book->getTitle(), 0, 20) . '...' ?></li>
                 <?php } else { ?>
                     <li class="title"><?= $book->getTitle() ?></li>
