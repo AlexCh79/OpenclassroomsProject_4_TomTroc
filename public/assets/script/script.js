@@ -1,3 +1,5 @@
+// Affichage et masquage des éléments mobile ou PC
+
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.mobile-menu');
 
@@ -15,4 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.conversation-view').classList.remove('mobile-hidden');
         document.querySelector('.conversation-view').style.display = 'block';
     }
+});
+
+// Gestion de la recherche des livres
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-books');
+    const cards = document.querySelectorAll('.card-book');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+
+        cards.forEach(card => {
+            const title = card.querySelector('.title').textContent.toLowerCase();
+
+            if (title.includes(query)) {
+                card.parentElement.style.display = "block"; // le <a>
+            } else {
+                card.parentElement.style.display = "none";
+            }
+        });
+    });
 });
