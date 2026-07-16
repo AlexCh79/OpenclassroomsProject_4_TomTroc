@@ -129,9 +129,13 @@ try {
         case 'send':
             $messageController->send();
             break;
+
+        default :
+            throw new Exception("Page introuvable !");            
     }
+
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
     $view = new View("Erreur");
     $view->render("errorPage", ['errorMessage' => $errorMessage]);
-}
+} 

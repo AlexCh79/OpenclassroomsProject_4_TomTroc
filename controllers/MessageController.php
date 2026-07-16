@@ -31,6 +31,11 @@ public function getMessenger(): void
     if (isset($_GET['otherId'])) {
         $otherId = (int) $_GET['otherId'];
         $other = $userManager->getUserById($otherId);
+
+        if (!$other) {
+            throw new Exception("Cet utilisateur n'existe pas.");
+        }        
+
         $conversation = $messageManager->getConversation($_SESSION['idUser'], $otherId);
     }
 
@@ -54,6 +59,10 @@ public function getMessenger(): void
         $userManager = new UserManager();
         $otherUser = $userManager->getUserById($otherId);
 
+        if (!$otherUser) {
+            throw new Exception("Cet utilisateur n'existe pas.");
+        }
+        
         $messageManager = new MessageManager();
         $messages = $messageManager->getConversation($_SESSION['idUser'], $otherId);
 
@@ -74,6 +83,14 @@ public function getMessenger(): void
         if(empty($content)){
             throw new Exception('Le message est vide.');
         }
+
+        // Vérification que l'utilisateur destinataire existe
+        $userManager = new UserManager();
+        $otherUser = $userManager->getUserById($otherId);
+
+        if (!$otherUser) {
+            throw new Exception("Impossible d'envoyer un message : utilisateur introuvable.");
+        }        
 
         $message = new Message();
         $message->setSendId($_SESSION['idUser']);
