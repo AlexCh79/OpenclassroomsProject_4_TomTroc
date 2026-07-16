@@ -90,12 +90,13 @@ class MessageManager extends AbstractManager
     /*
     * Renvoie le statut lu d'un message via son ID
     */
-    public function markAsRead(int $messageId): void
+    public function markAsRead(int $messageId, int $userId): void
     {
-        $sql = "UPDATE messages SET read_status = 1 WHERE id = :id";
+        $sql = "UPDATE messages SET read_status = 1 WHERE id = :id AND receive_id = :userId";
         $result = $this->db->prepare($sql);
         $result->execute([
             'id' => $messageId,
+            'userId' => $userId,
         ]);
     }
 }

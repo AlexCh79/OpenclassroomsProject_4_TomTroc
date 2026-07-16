@@ -129,6 +129,6 @@ public function getMessenger(): void
     public function markAsRead(int $messageId): void
     {
         $messageManager = new MessageManager();
-        $messageManager->markAsRead($messageId);
+        $messageManager->markAsRead($messageId, $_SESSION['idUser']);
     }
 }

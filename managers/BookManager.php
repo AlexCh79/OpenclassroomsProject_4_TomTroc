@@ -91,7 +91,7 @@ class BookManager extends AbstractManager
     */
     public function updateById(?Book $book): void
     {
-        $sql = 'UPDATE books SET title = :title, author = :author, description = :description, status = :status WHERE id = :id';
+        $sql = 'UPDATE books SET title = :title, author = :author, description = :description, status = :status WHERE id = :id AND userId = :userId';
         $result = $this->db->prepare($sql);
         $result->execute([
             'id' => $book->getId(),
@@ -99,6 +99,7 @@ class BookManager extends AbstractManager
             'author' => $book->getAuthor(),
             'description' => $book->getDescription(),
             'status' => $book->getStatus(),
+            'userId' => $book->getUserId(),
         ]);
     }
 
@@ -107,9 +108,12 @@ class BookManager extends AbstractManager
     */
     public function deleteById(?Book $book): void
     {
-        $sql = 'DELETE FROM books WHERE id = :id';
+        $sql = 'DELETE FROM books WHERE id = :id AND userId = :userId';
         $result = $this->db->prepare($sql);
-        $result->execute(['id' => $book->getId()]);
+        $result->execute([
+            'id' => $book->getId(),
+            'userId' => $book->getUserId(),
+        ]);
     }
 
     /*
