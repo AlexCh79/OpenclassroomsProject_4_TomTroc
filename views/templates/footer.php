@@ -3,8 +3,8 @@
 * Footer
 */
 ?>
-<footer role="contentinfo">
-    <nav class="footer" role="navigation" aria-label="footer bar">
+<footer>
+    <nav class="footer" aria-label="footer bar">
         <ul>
             <li>Politique de confidentialité</li>
             <li>Mentions légales</li>

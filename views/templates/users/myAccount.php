@@ -6,18 +6,18 @@
 <div class="account-section">
     <h1>Mon Compte</h1>
     <div class="user-info-container">
-        <section class="my-account" role="region" aria-label="Présentation de votre profil">
+        <section class="my-account" aria-label="Présentation de votre profil">
             <div class="user-card">
-                <img aria-label="image du profil utilisateur" class="user-photo" role="img" src="<?= urldecode($user->getPhoto())  ?>">
-                <a alt="Modifier la photo de profil">modifier</a>
-                <img aria-hidden="true" src="./public/assets/images/Line 5.png" alt="" class="user-card-hr">
+                <img aria-label="image du profil utilisateur" class="user-photo" src="<?= urldecode($user->getPhoto())  ?>">
+                <a>modifier</a>
+                <img aria-hidden="true" src="./public/assets/images/Line_5.png" alt="" class="user-card-hr">
                 <h2 class="user-name"><?= $user->getPseudo() ?></h2>
                 <p class="user-date"><?= $user->getSince() ?></p>
                 <p class="user-nb-books">BIBLIOTHEQUE</p>
                 <p class="nb-books"><img aria-hidden="true" alt="icone de livre" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
             </div>
         </section>
-        <section class="personal-info" role="region" aria-label="Vos informations">
+        <section class="personal-info" aria-label="Vos informations">
             <h2>Vos informations personnelles</h2>
             <form class="info-form" action="index.php?action=uploadUser" method="post">
                 <ul>
@@ -41,9 +41,9 @@
 </div>
 
 <!-- Ajout de la possibilité d'ajouter un livre depuis la page "Mon compte" - Retirer les marqueurs de commentaire pour activer la fonctionnalité -->
-<!-- <div class="new-book">
+<div class="new-book">
         <a href="index.php?action=new" aria-label="Ajout d'un nouveau livre" class="light-button new-book">Ajouter un livre</a>
-</div> -->
+</div>
 
 <!-- Liste des livres version mobile -->
 <div class="users-books">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <p class="user-book-description"><?= mb_substr($book->getDescription(), 0, 90) . '...' ?></p>
-                <nav class="book-upload-links" aria-label="Actions pour modifier le livre" role="navigation">
+                <nav class="book-upload-links" aria-label="Actions pour modifier le livre">
                     <a class="book-editing" href="index.php?action=display&id=<?= $book->getId() ?>">Editer</a>
                     <a class="book-erasing" href="index.php?action=erase&id=<?= $book->getId() ?>">Supprimer</a>
                 </nav>

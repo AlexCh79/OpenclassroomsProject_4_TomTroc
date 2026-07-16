@@ -6,15 +6,15 @@
 <div class="page-container">
     <div class="profile-section">
         <div class="user-info-container profile-info">
-            <section class="my-account" role="region" aria-label="Présentation du profil">
+            <section class="my-account" aria-label="Présentation du profil">
                 <div class="user-card">
                     <img aria-label="image du profil utilisateur" class="user-photo" src="<?= urldecode($user->getPhoto())  ?>">
-                    <img aria-hidden="true" alt="" src="./public/assets/images/Line 5.png" class="user-card-hr">
+                    <img aria-hidden="true" alt="" src="./public/assets/images/Line_5.png" class="user-card-hr">
                     <h2 class="user-name"><?= $user->getPseudo() ?></h2>
                     <p class="user-date"><?= $user->getSince() ?></p>
                     <p class="user-nb-books">BIBLIOTHEQUE</p>
                     <p class="nb-books"><img aria-hidden="true" alt="icone de livre" src="./public/assets/images/Vector.svg"> <?= $nbBooks ?> Livres</p>
-                    <a href="index.php?action=messenger"><button class="light-button">Envoyer un message</button></a>
+                    <a href="index.php?action=messenger&otherId=<?= $user->getId() ?>" class="light-button">Envoyer un message</a>
                 </div>
             </section>
         </div>
