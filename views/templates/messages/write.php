@@ -5,10 +5,10 @@
 ?>
 <div class="messenger-layout">
     <div class="conversation-view">
-        <section role="region" aria-label="Vos messages avec l'utilisateur">
-            <a class="return-page desktop-hidden" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="true" alt="" src="./public/assets/images/Line 6.png"> retour </a>
+        <section aria-label="Vos messages avec l'utilisateur">
+            <a class="return-page desktop-hidden" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="true" alt="" src="./public/assets/images/Line_6.png"> retour </a>
             <div class="cartouche-message">
-                <img aria-label="Profil de l'interlocuteur" src="<?= $other->getPhoto() ?>" role="img">
+                <img aria-label="Profil de l'interlocuteur" src="<?= $other->getPhoto() ?>">
                 <span class="user-name"><?= $other->getPseudo() ?></span>
             </div>
             <ul class="conversation">

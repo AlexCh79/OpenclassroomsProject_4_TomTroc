@@ -10,24 +10,26 @@
             <?php foreach($messages as $message){
                 $listOther = $message->getOtherUser();
             ?>
-            <a href="index.php?action=messenger&otherId=<?= $listOther->getId() ?>">
-                <li><img src="<?= $listOther->getPhoto() ?>" class="photo-profile" aria-label="Profil de l'interlocuteur"></li>
-                <div class="name-and-message">
-                    <li class="user-pseudo" aria-label="Pseudo de l'utilisateur avec qui vous échangez"><?= $listOther->getPseudo() ?></li>
-                    <li class="user-message" aria-label="Extrait du dernier message échangé"><?= mb_substr(nl2br($message->getContent()), 0, 40) . '...' ?></li>
-                </div>
-                <li class="user-hour" aria-label="Heure du dernier message"><?= $message->getSendDate()->format('H:i') ?></li>
-            </a>
+            <li class="message-contain">
+                <a href="index.php?action=messenger&otherId=<?= $listOther->getId() ?>">
+                    <img src="<?= $listOther->getPhoto() ?>" class="photo-profile" alt="Photo de profil de l'interlocuteur">
+                    <div class="name-and-message">
+                        <span class="user-pseudo"><?= $listOther->getPseudo() ?></span>
+                        <span class="user-message"><?= mb_substr(nl2br($message->getContent()), 0, 40) . '...' ?></span>
+                    </div>
+                    <span class="user-hour"><?= $message->getSendDate()->format('H:i') ?></span>
+                </a>
+            </li>
             <?php } ?>
         </ul>
     </aside>
 
     <div class="conversation-view mobile-hidden">
-        <a class="return-page desktop-hidden" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="true" alt="" src="./public/assets/images/Line 6.png"> retour </a>
+        <a class="return-page desktop-hidden" href="index.php?action=messenger" aria-label="Retour à la page précédente"><img aria-hidden="true" alt="" src="./public/assets/images/Line_6.png"> retour </a>
         <?php if ($conversation && $other) { ?>
             <section>
                 <div class="cartouche-message">
-                    <img src="<?= $other->getPhoto() ?>">
+                    <img src="<?= $other->getPhoto() ?>" alt="photo de profil de l'interlocuteur">
                     <span class="user-name"><?= $other->getPseudo() ?></span>
                 </div>
 
@@ -40,7 +42,7 @@
                         ?>              
                         <?php if ($msg->getSendId() === $other->getId()) { ?>
                             <li class="message-date left-date">
-                                <img class="mini-photo" src="<?= $other->getPhoto() ?>">
+                                <img class="mini-photo" src="<?= $other->getPhoto() ?>" alt="photo de profil de l'interlocuteur">
                                 <?= $msg->getSendDate()->format('d:m H:i') ?>
                             </li>
                             <li class="message-content left-content"><?= $msg->getContent() ?></li>
@@ -59,9 +61,9 @@
 
         <?php } else { ?>
 
-            <section class="empty-conversation">
+            <div class="empty-conversation">
                 <p>Sélectionnez une conversation</p>
-            </section>
+            </div>
 
         <?php } ?>
     </div>

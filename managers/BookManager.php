@@ -11,7 +11,7 @@ class BookManager extends AbstractManager
     */
     public function getAllBooks() : array
     {
-        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, u.pseudo as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id';
+        $sql = 'SELECT b.id, b.title, b.description, b.image, b.author, b.status, u.pseudo as userName, u.photo as userPhoto  FROM books as b INNER JOIN users as u ON b.userId = u.id';
         $result = $this->db->prepare($sql);
         $result->execute();
         $books = [];
