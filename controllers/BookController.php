@@ -26,6 +26,10 @@ class BookController
 
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
+
+        if (!$book) {
+            throw new Exception("Le livre est introuvable !");
+        }
         
         $userManager = new UserManager();
         $user = $userManager->getUserById($book->getUserId());
@@ -43,6 +47,10 @@ class BookController
 
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
+
+        if (!$book) {
+            throw new Exception("Le livre est introuvable !");
+        }        
 
         $view = new View("Edition livre");
         $view->render("books/upload", ['book' => $book]);
@@ -64,6 +72,10 @@ class BookController
         // Récupération du livre dans la base de données
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
+
+        if (!$book) {
+            throw new Exception("Le livre est introuvable !");
+        }        
 
         // Hydratation du livre avec les nouvelle données
         $book->setTitle($title);
@@ -89,6 +101,10 @@ class BookController
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
         
+        if (!$book) {
+            throw new Exception("Le livre est introuvable !");
+        }
+
         // Suppression de la base
         $bookManager->deleteById($book);
 

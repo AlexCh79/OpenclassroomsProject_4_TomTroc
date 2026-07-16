@@ -31,7 +31,7 @@ class UserController
 
         // Pseudo non vide
         if (empty($pseudo)) {
-            throw new Exception("Le pseudo est obligatoire");
+            throw new Exception("Le pseudo est obligatoire.");
         }
 
         // Adresse mail non vide et format valide
@@ -50,7 +50,7 @@ class UserController
         // On vérifie que le pseudo n'existe pas
         $checkPseudo = $userManager->getByPseudo($pseudo);
         if ($checkPseudo) {
-            throw new Exception("Ce pseudo existe déjà");
+            throw new Exception("Ce pseudo existe déjà.");
         }
 
         //On vérifie que l'email n'est pas déjà utilisé
@@ -94,7 +94,7 @@ class UserController
         $user = $userManager->getUserByEmail($email);
 
         if (!$user) {
-            throw new Exception("L'adresse mail ne correspond à aucun utilisateur enregistrés");
+            throw new Exception("L'adresse mail ne correspond à aucun utilisateur enregistré.");
         }
 
         $userPass = $user->getPassword();
@@ -115,11 +115,17 @@ class UserController
     public function showAccount(): void
     {
         $id = $_SESSION['idUser'];
+
+        // Erreur si l'utilisateur n'est pas connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à votre compte.");
+        }
+
         $userManager = new UserManager();
         $user = $userManager->getUserById($id);
 
         if (!$user) {
-            throw new exception ("Erreur dans la récupération de la session utilisateur");
+            throw new exception ("Erreur dans la récupération de la session utilisateur.");
         } 
         
         // Récupération des livres de l'utilisateur
@@ -149,7 +155,7 @@ class UserController
     {
         // Vérif. que l'utilisateur est bien connecté
         if(!isset($_SESSION['idUser'])) {
-            throw new Exception("Vous devez vous connecter pour modifier les informations du profil");
+            throw new Exception("Vous devez vous connecter pour modifier les informations du profil.");
         }
 
         // Récupération de l'id de l'utilisateur connecté
@@ -164,10 +170,26 @@ class UserController
         $userManager = new UserManager();
         $user = $userManager->getUserById($id);
 
+        if (!$user) {
+            throw new Exception("Utilisateur introuvable.");
+        }
+
         // Mise à jour des données si modifiées
 
         // Email
         if (!empty($email) && $email !== $user->getEmail()) {
+
+            // Vérifie que l'email est valide
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("L'adresse email est invalide.");
+            }
+
+            // Vérifie que l'email n'est pas déjà utilisé par quelqu'un d'autre
+            $check = $userManager->getUserByEmail($email);
+            if ($check && $check->getId() !== $user->getId()) {
+                throw new Exception("Cet email est déjà utilisé par un autre utilisateur.");
+            }
+
             $user->setEmail(htmlspecialchars($email));
         }
 
