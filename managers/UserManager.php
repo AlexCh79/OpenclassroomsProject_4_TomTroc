@@ -66,7 +66,7 @@ class UserManager extends AbstractManager
         $user = $result->fetch();
 
         if (!$user) {
-            throw new exception("Aucun utilisateur trouvé avec cet id.");
+            return null;
         }
 
         return new User($user);

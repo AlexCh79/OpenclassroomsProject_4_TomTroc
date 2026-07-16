@@ -44,13 +44,23 @@ class BookController
     public function displayDetails() : void
     {
         $id = (int) Utils::request('id', -1);
-
+        
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
 
         if (!$book) {
             throw new Exception("Le livre est introuvable !");
-        }        
+        }     
+
+        // Vérifie que l'utilisateur est bien connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à cette page.");
+        }   
+
+        // Vérifie que le livre appartient à l'utilisateur connecté
+        if ($book->getUserId() !== $_SESSION['idUser']) {
+            throw new Exception("Vous n'êtes pas autorisé à modifier ce livre.");
+        }
 
         $view = new View("Edition livre");
         $view->render("books/upload", ['book' => $book]);
@@ -75,7 +85,17 @@ class BookController
 
         if (!$book) {
             throw new Exception("Le livre est introuvable !");
-        }        
+        }    
+        
+        // Vérifie que l'utilisateur est bien connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à cette page.");
+        }   
+
+        // Vérifie que le livre appartient à l'utilisateur connecté
+        if ($book->getUserId() !== $_SESSION['idUser']) {
+            throw new Exception("Vous n'êtes pas autorisé à modifier ce livre.");
+        }     
 
         // Hydratation du livre avec les nouvelle données
         $book->setTitle($title);
@@ -105,6 +125,16 @@ class BookController
             throw new Exception("Le livre est introuvable !");
         }
 
+        // Vérifie que l'utilisateur est bien connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à cette page.");
+        }  
+
+        // Vérifie que le livre appartient à l'utilisateur connecté
+        if ($book->getUserId() !== $_SESSION['idUser']) {
+            throw new Exception("Vous n'êtes pas autorisé à modifier ce livre.");
+        }      
+
         // Suppression de la base
         $bookManager->deleteById($book);
 
@@ -117,6 +147,11 @@ class BookController
     */
     public function new(): void
     {
+        // Vérifie que l'utilisateur est bien connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à cette page.");
+        }
+
         $view = new View("Ajout d'un livre");
         $view->render('books/new');
     }
@@ -126,6 +161,11 @@ class BookController
     */
     public function add(): void
     {
+        // Vérifie que l'utilisateur est bien connecté
+        if (!isset($_SESSION['idUser'])) {
+            throw new Exception("Vous devez être connecté pour accéder à cette page.");
+        }
+
         // Nettoyage des données
         $image = urlencode(htmlspecialchars(Utils::request('url-photo')));
         $title = htmlspecialchars(Utils::request('title'));
